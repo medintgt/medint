@@ -1,14 +1,17 @@
 import React from "react";
 import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
+import Hero from "./Hero/Hero";
 
 const Layout = ({ children }) => {
-    return (
-        <div>
-            <Navbar />
-            { children }
-            <footer className="container mx-auto flex justify-end"><p className="text-sky-800">Version 2.0.0</p></footer>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      {children}
+      <Footer />
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;

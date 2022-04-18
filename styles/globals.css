@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hero {
+    background: #f1f1f1;
+}
+.hero-title {
+    background: #ffffff;
+}
