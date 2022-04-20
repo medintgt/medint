@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heroPic from "../../public/building.jpg";
+import heroPic from "../../public/hero.png";
 import PrimaryButton from "../Button/Primary";
 import SecondaryButton from "../Button/Secondary";
 

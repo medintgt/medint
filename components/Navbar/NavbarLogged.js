@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo.svg"
 
-const Navbar = () => {
+const NavbarLogged = () => {
   return (
     <header className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
       <Link href="/app">
@@ -31,9 +31,8 @@ const Navbar = () => {
             </Link>
           </div>
           <i className="fi-rr-menu-burger text-3xl cursor-pointer lg:hidden align-middle md:mr-4 p-2"></i>
-          <i className="fi-rr-shopping-cart text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main hidden" title="Shopping Cart"></i>
-          <i className="fi-rr-sign-in-alt text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main" title="Sign In"></i>
-          <span className="text-3xl w-10 ml-2 hidden">
+          <i className="fi-rr-shopping-cart text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main" title="Shopping Cart"></i>
+          <span className="text-3xl w-10 ml-2">
           <Image
             className="rounded-full cursor-pointer"
             src="/user1.jpg"
@@ -48,4 +47,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarLogged;
