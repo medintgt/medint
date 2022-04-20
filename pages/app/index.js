@@ -1,12 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import LayoutApp from "../../components/LayoutApp";
 
 export default function Dashboard() {
   return (
-    <div className="container mx-auto">
-      
-    </div>
+    <LayoutApp>
+      <div className="container mx-auto">
+        <h1 className="text-4xl">Escritorio</h1>
+      </div>
+    </LayoutApp>
   )
 }
 

@@ -14,7 +14,7 @@ const Footer = () => {
           />
         </div>
         <div className="">
-          <nav className="text-lg hidden lg:inline">
+          <nav className="text-lg">
             <a className="m-4">Términos y Condiciones</a>
             <a className="m-4">Política de Privacidad</a>
             <a className="m-4">Empleos</a>
