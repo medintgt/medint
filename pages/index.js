@@ -9,7 +9,7 @@ const Home = () => {
     <Layout>
       <div className="container mx-auto pt-12">
       <Hero />
-      <section className="md:mt-36 flex justify-center md:mb-36 md:justify-between flex-wrap-reverse md:flex-nowrap">
+      <section className="md:mt-36 flex justify-center md:mb-36 md:justify-between flex-wrap-reverse lg:flex-nowrap">
         <div className="">
           <Image
             className="cursor-pointer object-contain"
