@@ -3,6 +3,18 @@ import Link from "next/link";
 import logo from "../../public/logo.svg"
 
 const Navbar = () => {
+  const messages = {
+    es: {
+      GREETING: 'Terapias',
+    },
+    en: {
+      GREETING: 'Therapies',
+    },
+    fr: {
+      GREETING: 'Thérapies',
+    },
+  }
+
   return (
     <header className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
       <Link href="/">

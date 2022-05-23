@@ -3,8 +3,10 @@ import Link from "next/dist/client/link";
 import whatsIco from "../../public/whatsapp.png";
 import instaIco from "../../public/instagram.png";
 import linkeIco from "../../public/linkedin.png";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className="text-white bg-main text-lg">
       <div className="container mx-auto py-8  grid justify-items-center gap-y-8">
@@ -48,9 +50,15 @@ const Footer = () => {
           </nav>
         </div>
         <div className="flex justify-evenly gap-4">
-          <button className="w-10 h-10 rounded-full border-2 p-1 font-bold" title="Español">Es</button>
-          <button className="w-10 h-10 rounded-full border-2 p-1 font-bold" title="English">En</button>
+          <Link href={router.asPath} locale="es">
+          <a className="w-10 h-10 rounded-full border-2 p-1 font-bold" title="Español">Es</a>
+          </Link>
+          <Link href={`/en${router.asPath}`} locale="en">
+          <a className="w-10 h-10 rounded-full border-2 p-1 font-bold" title="English">En</a>
+          </Link>
+          <Link href={`/fr${router.asPath}`} locale="fr">
           <button className="w-10 h-10 rounded-full border-2 p-1 font-bold" title="Français">Fr</button>
+          </Link>
         </div>
         <div>
           <copy>&copy; 2022 Medint</copy>
