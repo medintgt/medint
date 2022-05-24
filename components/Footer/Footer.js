@@ -12,14 +12,14 @@ const Footer = () => {
       <div className="container mx-auto py-8  grid justify-items-center gap-y-8">
         <div>
           <Image
-            className="cursor-pointer"
+            className="cursor-pointer print:hidden"
             src="/logo-white.svg"
             alt="Medint Logo"
             width="150"
             height="46"
           />
         </div>
-        <div className="flex justify-evenly gap-4 font-bold">
+        <div className="flex justify-evenly gap-4 font-bold print:hidden">
         <a href="https://wa.me/50259665659" rel="noreferrer" target="_blank" className="w-8 h-8 cursor-pointer"><Image 
           src={whatsIco}
           alt="Whatsapp Icon"
@@ -33,7 +33,7 @@ const Footer = () => {
           alt="Whatsapp Icon"
           /></a>
         </div>
-        <div className="">
+        <div className="print:hidden">
           <nav className="text-lg flex flex-wrap">
             <Link href="/terms">
             <a className="m-4 cursor-pointer">Términos y Condiciones</a>
@@ -49,7 +49,7 @@ const Footer = () => {
             </Link>
           </nav>
         </div>
-        <div className="flex justify-evenly gap-4">
+        <div className="flex justify-evenly gap-4 print:hidden">
           <Link href={router.asPath} locale="es">
           <a className="w-10 h-10 rounded-full border-2 p-1 font-bold" title="Español">Es</a>
           </Link>
