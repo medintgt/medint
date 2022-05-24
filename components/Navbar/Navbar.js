@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo.svg";
+import ToogleMenu from "./ToogleMenu";
 
 const Navbar = () => {
   const messages = {
@@ -16,14 +17,15 @@ const Navbar = () => {
   };
 
   return (
-    <header className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
+    <header className="bg-white z-10 container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
       <Link href="/">
         <a className="text-3xl w-48 md:w-56">
-          <Image className="cursor-pointer h-2" src={logo} alt="Medint Logo" />
+          <Image className="cursor-pointer h-2" src={logo} alt="Medint Logotype" />
         </a>
       </Link>
       <div className="print:hidden">
         <nav className="text-lg flex items-center">
+        <ToogleMenu />
           <div className="hidden lg:flex">
             <Link href="/therapies">
               <a className="m-4 hover:text-main">Terapias</a>
@@ -38,7 +40,6 @@ const Navbar = () => {
               <a className="m-4 hover:text-main">Artículos</a>
             </Link>
           </div>
-          <i className="fi-rr-menu-burger text-3xl cursor-pointer lg:hidden align-middle md:mr-4 p-2"></i>
           <i
             className="fi-rr-shopping-cart text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main hidden"
             title="Shopping Cart"
