@@ -7,13 +7,13 @@ const Hero = () => {
   return (
     <div className="w-full flex justify-between items-center">
       <div className="pb-24">
-        <h1 className="text-6xl font-extrabold my-2 text-center md:text-left">Un estilo de vida saludable</h1>
-        <h2 className="text-3xl font-bold my-2 text-center md:text-left">
+        <h1 className="text-4xl font-extrabold my-2 text-center md:text-left">Un estilo de vida saludable</h1>
+        <h2 className="text-2xl my-2 text-center md:text-left">
           Tu cuerpo y mente necesitan un estilo de vida nuevo.
         </h2>
         <div className="my-8 flex justify-center md:justify-start">
           <PrimaryButton
-          text="Unirte gratis"
+          text="Empezar ahora"
           link="/"
           />
           

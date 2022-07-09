@@ -20,11 +20,10 @@ const Home = () => {
         <div className="px-4 pb-6">
           <h2 className="text-3xl">Conócenos</h2>
           <p className="text-lg pt-4">
-            En Medint somos un equipo multidisciplinario que busca mantener,
-            recuperar y rehabilitar la salud del ser humano a través de
-            alimentación saludabe, ejercicios y terapias naturales (Naturopatía,
-            Homeopatía, Acupuntura, Masaje, Quiropraxia y terapia neural) que
-            procuren el bienestar del individuo de forma integral, logrando
+            En Medint somos un equipo multidisciplinario de profesionales que busca mantener,
+            recuperar y rehabilitar la salud del ser humano de forma integral por medio de medicina
+            alopatica y homeopatica, integrada por: alimentación saludabe, ejercicio, medicamentos
+            y/o terapias complementarias que procuren el bienestar del individuo, logrando
             alcanzar un equilibrio biopsicosocial. Utilizamos y distribuimos en
             su mayoría terapias y medicamentos homeopáticos y naturales. Se ha
             demostrado que tenemos en la naturaleza recursos que pueden ayudar a

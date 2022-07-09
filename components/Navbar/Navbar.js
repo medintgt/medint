@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <header className="bg-white z-10 container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
       <Link href="/">
-        <a className="text-3xl w-48 md:w-56">
+        <a className="text-3xl w-40">
           <Image className="cursor-pointer h-2" src={logo} alt="Medint Logotype" />
         </a>
       </Link>
