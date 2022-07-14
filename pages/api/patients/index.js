@@ -1,9 +1,9 @@
-import Cors from "cors";
 import { connectToDatabase } from "@middleware/database";
-import { ObjectId } from "mongodb";
+import Cors from "cors";
 
 const cors = Cors({
-  methods: ["GET", "HEAD"],
+  origin: ['https://admin.medint.gt', 'https://medint.gt', 'http://127.0.0.1:3000/', 'http://127.0.0.1/'],
+  methods: ["POST", "GET", "HEAD"],
 });
 
 function runMiddleware(req, res, fn) {
@@ -22,11 +22,10 @@ export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
 
   const { filters } = req.body;
-
-  const { db } = await connectToDatabase();
-
+  
   try {
-    const data = await db
+      const { db } = await connectToDatabase();
+      const data = await db
       .collection("patients")
       .find({})
       .limit(/* filters.limit */ 20)
