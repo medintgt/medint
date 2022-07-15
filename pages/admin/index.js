@@ -1,11 +1,13 @@
+import LayoutAdmin from "@components/LayoutAdmin";
 import React from "react";
-import QuickActions from "@components/Buttons/QuickActions";
-import ImportantInfo from "@components/Cards/ImportantInfo";
-import Statistics from "@components/Cards/Statistics"
-import { ShowAppointments } from "@components/Appointments/ShowAppointments";
+import QuickActions from "@components/Admin/Buttons/QuickActions";
+import ImportantInfo from "@components/Admin/Cards/ImportantInfo";
+import Statistics from "@components/Admin/Cards/Statistics"
+import { ShowAppointments } from "@components/Admin/Appointments/ShowAppointments";
 
 const Dashboard = () => {
   return (
+    <LayoutAdmin>
     <div className="container mx-auto grid justify-center">
       <section className="flex justify-between py-4">
         <h1 className="text-2xl">Dashboard</h1>
@@ -33,6 +35,8 @@ const Dashboard = () => {
       <ImportantInfo value1="12312031" value2="Traumeel S" />
       <QuickActions />
     </div>
+
+    </LayoutAdmin>
   );
 };
 
