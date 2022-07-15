@@ -1,9 +1,10 @@
 import { connectToDatabase } from "@middleware/database";
 import Cors from "cors";
 
+const whiteList = ['https://admin.medint.gt', 'https://medint.gt'];
 const cors = Cors({
-  origin: ['https://admin.medint.gt', 'https://medint.gt', 'http://127.0.0.1:3000/', 'http://127.0.0.1/'],
   methods: ["POST", "GET", "HEAD"],
+  origin: true,
 });
 
 function runMiddleware(req, res, fn) {
