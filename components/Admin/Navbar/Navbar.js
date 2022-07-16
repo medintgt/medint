@@ -9,7 +9,7 @@ const Navbar = () => {
       <nav className="container mx-auto flex justify-between items-center px-4 py-2">
         <ToogleMenu />
         <div>
-          <Link href="/">
+          <Link href="/app">
             <a>
               <Image
                 className="w-10 z-8 h-10 rounded-full cursor-pointer"

@@ -17,12 +17,12 @@ export const ShowAppointments = () => {
       const dataList =
         data.map((item) => (
           <li key={item._id} className="text-lg flex justify-between px-4 py-1">
-              <Link href={`/appointments/${item._id}`}>
+              <Link href={`/app/appointments/${item._id}`}>
                 <a>
-                  <span className="cursor-pointer text-sky-800">{item._id}</span>
+                  <span className="cursor-pointer text-sky-800">{item.dpi}</span>
                 </a>
               </Link>
-              <span className="">{item.first_name}</span>
+              <span className="">{item.first_name} {item.last_name.split(' ')[0]}</span>
             </li>
           ));
     console.log(data)

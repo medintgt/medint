@@ -1,11 +1,14 @@
+import LayoutAdmin from "@components/LayoutAdmin";
 import React from "react"
 import { useRouter } from "next/router";
-import Title from "@components/Title";
-import { ApointmentCard } from "../../components/Appointments/AppointmentCard";
+import Title from "@components/Admin/Title";
+import { ApointmentCard } from "@components/Admin/Appointments/AppointmentCard";
 
 const Appointment = () => {
     const router = useRouter();
+    const id = router.query.id;
     return (
+        <LayoutAdmin>
         <div className="container mx-auto grid justify-center">
             <Title 
             title="Appointment"
@@ -13,10 +16,9 @@ const Appointment = () => {
             breadcrumb="Appointments"
             />
             <ApointmentCard 
-            id={router.query.id}
-            value1="Valor 1"
-            value2="Valor 2"/>
+            id={id}/>
         </div>
+        </LayoutAdmin>
     );
 };
 

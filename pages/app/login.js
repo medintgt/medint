@@ -1,5 +1,5 @@
-import Input from "../components/Forms/Elements/Input";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
+import Input from "@components/Forms/Elements/Input";
+import PrimaryButton from "@components/Buttons/Primary";
 import Image from "next/image";
 import Link from "next/dist/client/link";
 

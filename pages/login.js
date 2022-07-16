@@ -18,7 +18,7 @@ const Login = () => {
         <h1 className="text-3xl">Log in</h1>
         <div className="my-2"><Input label="User" type="text" placeholder="User" /></div>
         <div className="my-2"><Input label="Password" type="password" placeholder="Password" /></div>
-        <div className="my-2"><Primary link="/login" text="Log In" type="submit"/></div>
+        <div className="my-2"><Primary link="/app" text="Log In" type="submit"/></div>
         <div className="text-lg"><span>Remember me</span><input className="ml-2 border-2 border-sky-800 rounded-full" type="checkbox"></input></div>
         <div className="text-lg"><Link href="/forgot-password"><a className="ml-2 cursor-pointer text-sky-800">Forgot Password?</a></Link></div>
       </form>
