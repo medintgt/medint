@@ -1,13 +1,19 @@
 import Title from "@components/Admin/Title";
-import { ShowPatient } from "@components/Admin/Show/ShowPatient";
+import { ShowPatient } from "@components/Admin/Patients/ShowPatient";
+import LayoutAdmin from "@components/LayoutAdmin";
+import { useRouter } from "next/router";
+
 
 const Patient = () => {
-    const values = ["Red Scissors", "Red Scissors Inc. (7892)", "100", "150", "1", "Lorem Impsum Dolor Ammet Sit"];
+    const router = useRouter();
+    const id = router.query.id;
 return (
+    <LayoutAdmin>
     <div className="container mx-auto grid justify-center">
         <Title title="Patient" src="/patients" breadcrumb="Patients"/>
-        <ShowPatient />
+        <ShowPatient id={id} />
     </div>
+    </LayoutAdmin>
 );
 };
 
