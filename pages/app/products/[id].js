@@ -1,5 +1,5 @@
-import Title from "@components/Title";
-import { ShowProduct } from "@components/Show/ShowProduct";
+import Title from "@components/Admin/Title";
+import { ShowProduct } from "@components/Admin/Show/ShowProduct";
 
 const Product = () => {
     const values = ["Red Scissors", "Red Scissors Inc. (7892)", "100", "150", "1", "Lorem Impsum Dolor Ammet Sit"];

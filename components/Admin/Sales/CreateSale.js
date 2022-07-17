@@ -1,7 +1,7 @@
-import Input from "@components/Forms/Elements/Input";
-import Select from "@components/Forms/Elements/Select";
+import Input from "@components/Admin/Forms/Elements/Input";
+import Select from "@components/Admin/Forms/Elements/Select";
 import "react-calendar/dist/Calendar.css";
-import PrimaryButton from "@components/Buttons/PrimaryButton";
+import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 
 const options = [
   { value: "0", text: "Cash" },

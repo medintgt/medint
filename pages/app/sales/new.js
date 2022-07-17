@@ -1,5 +1,5 @@
-import Title from "@components/Title"
-import { CreateSale } from "@components/Sales/CreateSale"
+import Title from "@components/Admin/Title"
+import { CreateSale } from "@components/Admin/Sales/CreateSale"
 
 const NewSale = () => {
     return (

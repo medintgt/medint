@@ -1,7 +1,7 @@
 import React from "react";
-import Input from "@components/Forms/Elements/Input";
-import Textarea from "@components/Forms/Elements/Textarea";
-import PrimaryButton from "@components/Buttons/PrimaryButton";
+import Input from "@components/Admin/Forms/Elements/Input";
+import Textarea from "@components/Admin/Forms/Elements/Textarea";
+import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 import ImageGroup from "./Elements/ImageGroup";
 import Select from "./Elements/Select";
 

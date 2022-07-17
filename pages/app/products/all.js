@@ -1,6 +1,6 @@
 import React from "react";
-import Title from "@components/Title"
-import ShowAll from "@components/Cards/ShowAll";
+import Title from "@components/Admin/Title"
+import ShowAll from "@components/Admin/Cards/ShowAll";
 
 const allProducts = () => {
   return (

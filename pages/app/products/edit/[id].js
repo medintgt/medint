@@ -1,6 +1,6 @@
 import React from "react";
-import Title from "@components/Title"
-import EditProductForm from "@components/Forms/EditProductForm";
+import Title from "@components/Admin/Title"
+import EditProductForm from "@components/Admin/Forms/EditProductForm";
 import { useRouter } from "next/router";
 
 const EditProduct = () => {

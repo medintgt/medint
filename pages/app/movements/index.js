@@ -1,7 +1,7 @@
 import React from "react";
-import Title from "@components/Title"
-import ImportantInfo from "@components/Cards/ImportantInfo";
-import QuickActions from "@components/Buttons/QuickActions";
+import Title from "@components/Admin/Title"
+import ImportantInfo from "@components/Admin/Cards/ImportantInfo";
+import QuickActions from "@components/Admin/Buttons/QuickActions";
 
 const Movements = () => {
     return (

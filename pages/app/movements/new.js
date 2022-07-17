@@ -1,4 +1,4 @@
-import Title from "@components/Title"
+import Title from "@components/Admin/Title"
 const NewMovement = () => {
     return (
         <div className="container mx-auto">

@@ -1,5 +1,5 @@
-import Title from "@components/Title";
-import ShowTherapy from "@components/Therapies/ShowTherapy";
+import Title from "@components/Admin/Title";
+import ShowTherapy from "@components/Admin/Therapies/ShowTherapy";
 
 const Therapy = () => {
     return (

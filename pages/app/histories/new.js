@@ -1,6 +1,6 @@
 
-import Title from "@components/Title"
-import CreateTherapy from "@components/Therapies/CreateTherapy";
+import Title from "@components/Admin/Title"
+import CreateTherapy from "@components/Admin/Therapies/CreateTherapy";
 const NewTherapie = () => {
     return (
         <div className="container mx-auto grid justify-center">

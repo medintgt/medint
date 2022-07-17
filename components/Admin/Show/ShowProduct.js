@@ -1,4 +1,4 @@
-import ShowImageGroup from "@components/Show/Elements/ImageGroup"
+import ShowImageGroup from "@components/Admin/Show/Elements/ImageGroup"
 import Entry from "./Elements/Entry";
 import SecondaryButton from "../Buttons/SecondaryButton";
 const ShowProduct = () => {

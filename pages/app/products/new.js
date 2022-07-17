@@ -1,6 +1,6 @@
 import React from "react";
-import Title from "@components/Title"
-import CreateForm from "@components/Forms/CreateForm";
+import Title from "@components/Admin/Title"
+import CreateForm from "@components/Admin/Forms/CreateForm";
 
 const newProduct = () => {
     return (

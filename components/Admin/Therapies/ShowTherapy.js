@@ -1,6 +1,6 @@
-import Entry from "@components/Show/Elements/Entry";
-import ShowImageGroup from "@components/Show/Elements/ImageGroup"
-import SecondaryButton from "@components/Buttons/SecondaryButton"
+import Entry from "@components/Admin/Show/Elements/Entry";
+import ShowImageGroup from "@components/Admin/Show/Elements/ImageGroup"
+import SecondaryButton from "@components/Admin/Buttons/SecondaryButton"
 
 const ShowTherapy = () => {
   return (

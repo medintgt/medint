@@ -1,9 +1,9 @@
-import Input from "@components/Forms/Elements/Input";
-import Select from "@components/Forms/Elements/Select";
+import Input from "@components/Admin/Forms/Elements/Input";
+import Select from "@components/Admin/Forms/Elements/Select";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { SelectTime } from "./SelectTime";
-import PrimaryButton from "@components/Buttons/PrimaryButton";
+import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 
 const options = [
   { value: "0", text: "Erika Perez" },

@@ -1,9 +1,9 @@
 import React from "react";
-import Input from "@components/Forms/Elements/Input";
-import Textarea from "@components/Forms/Elements/Textarea";
-import PrimaryButton from "@components/Buttons/PrimaryButton";
-import ImageGroup from "@components/Show/Elements/ImageGroup";
-import Select from "@components/Forms/Elements/Select";
+import Input from "@components/Admin/Forms/Elements/Input";
+import Textarea from "@components/Admin/Forms/Elements/Textarea";
+import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
+import ImageGroup from "@components/Admin/Show/Elements/ImageGroup";
+import Select from "@components/Admin/Forms/Elements/Select";
 
 const CreateTherapy = () => {
   const options = [

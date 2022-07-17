@@ -1,9 +1,9 @@
 import React from "react";
-import Title from "@components/Title"
-import SearchTab from "@components/Search/SearchTab";
-import ImportantInfo from "@components/Cards/ImportantInfo";
-import QuickActions from "@components/Buttons/QuickActions";
-import ShowAllLink from "@components/Show/Elements/Link/ShowAllLink"
+import Title from "@components/Admin/Title"
+import SearchTab from "@components/Admin/Search/SearchTab";
+import ImportantInfo from "@components/Admin/Cards/ImportantInfo";
+import QuickActions from "@components/Admin/Buttons/QuickActions";
+import ShowAllLink from "@components/Admin/Show/Elements/Link/ShowAllLink"
 
 const Dashboard = () => {
     return (

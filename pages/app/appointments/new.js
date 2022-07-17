@@ -1,6 +1,6 @@
 import React from "react"
-import { CreateAppointmentForm } from "@components/Appointments/CreateAppointmentForm";
-import Title from "@components/Title";
+import { CreateAppointmentForm } from "@components/Admin/Appointments/CreateAppointmentForm";
+import Title from "@components/Admin/Title";
 
 const NewAppointment = () => {
     return (

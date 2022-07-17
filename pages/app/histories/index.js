@@ -1,8 +1,8 @@
 import React from "react";
-import Title from "@components/Title";
-import ShowTherapiesCard from "@components/Therapies/ShowTherapiesCard";
-import QuickActions from "@components/Buttons/QuickActions";
-import SearchTab from "@components/Search/SearchTab";
+import Title from "@components/Admin/Title";
+import ShowTherapiesCard from "@components/Admin/Therapies/ShowTherapiesCard";
+import QuickActions from "@components/Admin/Buttons/QuickActions";
+import SearchTab from "@components/Admin/Search/SearchTab";
 
 const Therapies = () => {
   return (

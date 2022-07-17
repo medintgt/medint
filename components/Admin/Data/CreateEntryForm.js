@@ -1,8 +1,8 @@
 import React from "react";
-import Input from "@components/Forms/Elements/Input";
+import Input from "@components/Admin/Forms/Elements/Input";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import PrimaryButton from "@components/Buttons/PrimaryButton";
+import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 
 const CreateEntryForm = () => {
   const options = [

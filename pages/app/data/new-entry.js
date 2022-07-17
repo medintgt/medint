@@ -1,5 +1,5 @@
-import Title from "@components/Title"
-import CreateEntryForm from "@components/Data/CreateEntryForm"
+import Title from "@components/Admin/Title"
+import CreateEntryForm from "@components/Admin/Data/CreateEntryForm"
 
 const NewData = () => {
     return (
