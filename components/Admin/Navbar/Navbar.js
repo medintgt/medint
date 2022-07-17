@@ -21,7 +21,7 @@ const Navbar = () => {
             </a>
           </Link>
         </div>
-        <Link href="/profile">
+        <Link href="/app/profile">
           <a>
             <Image
               className="w-10 h-10 z-8 rounded-full cursor-pointer"
