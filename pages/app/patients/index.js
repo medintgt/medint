@@ -1,12 +1,14 @@
 import React from "react";
-import Title from "@components/Title"
-import QuickActions from "@components/Buttons/QuickActions";
-import SearchTab from "@components/Search/SearchTab";
-import ShowPatients from "@components/Cards/ShowPatients";
-import ShowAllLink from "@components/Show/Elements/Link/ShowAllLink"
+import Title from "@components/Admin/Title"
+import QuickActions from "@components/Admin/Buttons/QuickActions";
+import SearchTab from "@components/Admin/Search/SearchTab";
+import ShowPatients from "@components/Admin/Cards/ShowPatients";
+import ShowAllLink from "@components/Admin/Show/Elements/Link/ShowAllLink"
+import LayoutAdmin from "@components/LayoutAdmin";
 
 const Patients = () => {
     return (
+        <LayoutAdmin>
         <div className="container mx-auto grid justify-center">
             <Title 
             title="Patients"
@@ -15,9 +17,10 @@ const Patients = () => {
             />
             <SearchTab title="Search Patient" placeholder="Search by Id, name or country ID..." />
             <ShowPatients />
-            <ShowAllLink text="Show all patients" link="/patients/all"/>
+            <ShowAllLink text="Show all patients" link="/app/patients/all"/>
             <QuickActions />
         </div>
+        </LayoutAdmin>
     );
 };
 

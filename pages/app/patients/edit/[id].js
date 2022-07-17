@@ -1,6 +1,6 @@
-import Title from "@components/Title";
-import { ShowPatient } from "@components/Show/ShowPatient";
-import EditPatient from "@components/Forms/Patients/Edit";
+import Title from "@components/Admin/Title";
+import { ShowPatient } from "@components/Admin/Show/ShowPatient";
+import EditPatient from "@components/Admin/Forms/Patients/Edit";
 
 const Patient = () => {
     const values = ["Red Scissors", "Red Scissors Inc. (7892)", "100", "150", "1", "Lorem Impsum Dolor Ammet Sit"];

@@ -12,18 +12,18 @@ const ToogleMenu = () => {
     }
   };
   const items = [
-    { id: "1", title: "Dashboard", link: "/" },
-    { id: "2", title: "Patients", link: "/patients" },
-    { id: "3", title: "Therapies", link: "/therapies" },
-    { id: "4", title: "Sales", link: "/sales" },
-    { id: "5", title: "Appointments", link: "/appointments" },
-    { id: "6", title: "Products", link: "/products" },
-    { id: "7", title: "Movements", link: "/movements" },
-    { id: "8", title: "Courses", link: "/courses"},
-    { id: "9", title: "Articles", link: "/articles"},
-    { id: "10", title: "Users", link: "/users"},
-    { id: "11", title: "Prescriptions", link: "/prescriptions"},
-    { id: "12", title: "Orders", link: "/orders"}
+    { id: "1", title: "Dashboard", link: "/app" },
+    { id: "2", title: "Patients", link: "/app/patients" },
+    { id: "3", title: "Therapies", link: "/app/therapies" },
+    { id: "4", title: "Sales", link: "/app/sales" },
+    { id: "5", title: "Appointments", link: "/app/appointments" },
+    { id: "6", title: "Products", link: "/app/products" },
+    { id: "7", title: "Movements", link: "/app/movements" },
+    { id: "8", title: "Courses", link: "/app/courses"},
+    { id: "9", title: "Articles", link: "/app/articles"},
+    { id: "10", title: "Users", link: "/app/users"},
+    { id: "11", title: "Prescriptions", link: "/app/prescriptions"},
+    { id: "12", title: "Orders", link: "/app/orders"}
   ];
 
   const itemList = items.map((item) => (

@@ -1,32 +1,48 @@
 import React from "react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const ShowPatients = (props) => {
-  const patientsArray = [
-    { name: "Fernando Zampura", id: "123123123" },
-    { name: "Carlos Palacio", id: "234234234" },
-    { name: "Samantha Polilla", id: "345345345" },
-    { name: "Ivan Dunkerke", id: "456456456" },
-    { name: "Frederich Nergoman", id: "567567567" },
-    { name: "Sautin Manhatan", id: "678678678" },
-  ];
+  const [data, setData] = useState(null);
+
+  useEffect (()=> {
+    const getData = async () => {
+      const response = await axios.get(
+        '/api/patients'
+        )
+        setData(response.data)
+      }
+      getData();
+    }, [])
+if (data != null) {
+  
   return (
     <section className="my-4 max-w-md md:w-96 bg-white shadow-2xl p-3 rounded-md">
       <h2 className="text-xl">Recent created</h2>
       <ul>
-        {patientsArray.map((patient) => (
-          <li key={patient.id} className="text-lg flex justify-between px-4 py-1">
-            <Link href={`/patients/${patient.id}`}>
+        {data.map((patient) => (
+          <li key={patient._id} className="text-lg flex justify-between px-4 py-1">
+            <Link href={`/patients/${patient._id}`}>
             <a>
-            <span className="cursor-pointer text-sky-800">{patient.id}</span>
+            <span className="cursor-pointer text-sky-800">{patient.dpi}</span>
             </a>
             </Link>
-            <span className="cursor-pointer">{patient.name}</span>
+            <span className="cursor-pointer">{patient.first_name + " " + patient.last_name.split(" ")[0]}</span>
           </li>
         ))}
       </ul>
     </section>
   );
+} else {
+  
+  return (
+    <section className="my-4 max-w-md md:w-96 bg-white shadow-2xl p-3 rounded-md">
+      <h2 className="text-xl">Recent created</h2>
+      <h2 className="text-center text-xl"> Data is being loaded...</h2>
+    </section>
+  );
+}
 };
 
 export default ShowPatients;

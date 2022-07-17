@@ -1,6 +1,6 @@
 import React from "react"
-import Title from "@components/Title";
-import CreatePatient from "@components/Forms/CreatePatient";
+import Title from "@components/Admin/Title";
+import CreatePatient from "@components/Admin/Forms/CreatePatient";
 
 const NewPatient = () => {
     return (

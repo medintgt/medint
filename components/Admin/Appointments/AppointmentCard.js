@@ -11,7 +11,7 @@ export const ApointmentCard = (props) => {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(
-        `/api/patients/patient/${props.id}`
+        `/api/appointments/appointment/${props.id}`
       );
       setData(response.data);
     };
@@ -22,12 +22,12 @@ export const ApointmentCard = (props) => {
       <section className="my-4 max-w-md  md:w-96 h-auto p-3 ">
         <Entry
           name="Patient"
-          value={`${data.first_name} (${data.phone_number})`}
+          value={`${data.patient.name} (${data.patient.phone})`}
         />
-        <Entry name="Physician or Therapist" value={data.middle_name} />
+        <Entry name="Physician or Therapist" value={data.professional.name} />
         <div className="flex flex-col justify-center">
-          <Calendar className="mt-4 rounded-md" value={new Date(2022, 4, 12)} />
-          <SelectTime time="12:00 - 12:30" />
+          <Calendar className="mt-4 rounded-md" value={new Date(`${data.date}`)} />
+          <SelectTime time={data.time} />
         </div>
         <div className="pt-4 grid place-items-center">
           <SecondaryButton type="submit" text="Edit" />

@@ -32,8 +32,7 @@ const QuickActions = () => {
     <section key='0'>
       <button
         onClick={toogleMenu}
-        className="cursor-pointer bg- fixed bottom-10 right-10 text-4xl bg-sky-800 p-2.5 w-14 h-14 rounded-full text-white text-center grid place-items-center"
-      >
+        className="cursor-pointer bg-fixed bottom-10 right-10 text-4xl bg-sky-800 p-2.5 w-14 h-14 rounded-full text-white text-center grid place-items-center">
         <i className="fi-rr-plus-small"></i>
       </button>
       <div id="quickActions" className={`${state} relative`}>

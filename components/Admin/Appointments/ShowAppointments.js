@@ -7,7 +7,7 @@ export const ShowAppointments = () => {
   useEffect (()=> {
     const getData = async () => {
       const response = await axios.get(
-        '/api/patients'
+        '/api/appointments'
         )
         setData(response.data)
       }
@@ -19,10 +19,10 @@ export const ShowAppointments = () => {
           <li key={item._id} className="text-lg flex justify-between px-4 py-1">
               <Link href={`/app/appointments/${item._id}`}>
                 <a>
-                  <span className="cursor-pointer text-sky-800">{item.dpi}</span>
+                  <span className="cursor-pointer text-sky-800">{item.time}</span>
                 </a>
               </Link>
-              <span className="">{item.first_name} {item.last_name.split(' ')[0]}</span>
+              <span className="">{item.patient.name}</span>
             </li>
           ));
     console.log(data)
