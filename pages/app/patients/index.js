@@ -2,7 +2,7 @@ import React from "react";
 import Title from "@components/Admin/Title"
 import QuickActions from "@components/Admin/Buttons/QuickActions";
 import SearchTab from "@components/Admin/Search/SearchTab";
-import ShowPatients from "@components/Admin/Cards/ShowPatients";
+import ShowPatients from "@components/Admin/Patients/ShowPatients";
 import ShowAllLink from "@components/Admin/Show/Elements/Link/ShowAllLink"
 import LayoutAdmin from "@components/LayoutAdmin";
 
