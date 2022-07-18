@@ -3,9 +3,13 @@ import Title from "@components/Admin/Title"
 import QuickActions from "@components/Admin/Buttons/QuickActions";
 import ShowPatients from "@components/Admin/Patients/ShowPatients";
 import ShowAllTools from "@components/Admin/Tools/ShowAllTools";
+import LayoutAdmin from "@components/LayoutAdmin";
+
 
 const Patients = () => {
     return (
+        <LayoutAdmin>
+
         <div className="container mx-auto grid justify-center">
             <Title 
             title="All Patients"
@@ -16,6 +20,7 @@ const Patients = () => {
             <ShowPatients />
             <QuickActions />
         </div>
+            </LayoutAdmin>
     );
 };
 

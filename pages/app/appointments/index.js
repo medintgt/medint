@@ -3,9 +3,13 @@ import { ShowAppointments } from "@components/Admin/Appointments/ShowAppointment
 import Title from "@components/Admin/Title";
 import QuickActions from "@components/Admin/Buttons/QuickActions";
 import ShowAllLink from "@components/Admin/Show/Elements/Link/ShowAllLink"
+import LayoutAdmin from "@components/LayoutAdmin";
+
 
 const Appointments = () => {
     return (
+        <LayoutAdmin>
+
         <div className="container mx-auto grid justify-center">
             <Title 
             title="Appointments"
@@ -16,6 +20,7 @@ const Appointments = () => {
             <QuickActions />
             <ShowAllLink text="Show all appointments" link="/appointments/all" />
         </div>
+            </LayoutAdmin>
     )
 }
 

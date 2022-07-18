@@ -4,9 +4,12 @@ import SearchTab from "@components/Admin/Search/SearchTab";
 import ImportantInfo from "@components/Admin/Cards/ImportantInfo";
 import QuickActions from "@components/Admin/Buttons/QuickActions";
 import ShowAllLink from "@components/Admin/Show/Elements/Link/ShowAllLink"
+import LayoutAdmin from "@components/LayoutAdmin";
 
 const Dashboard = () => {
     return (
+        <LayoutAdmin>
+
         <div className="container mx-auto grid justify-center">
             <Title 
             title="Products"
@@ -21,6 +24,7 @@ const Dashboard = () => {
             <QuickActions />
             <ShowAllLink text="Show all products" link="/products/all" />
         </div>
+            </LayoutAdmin>
     );
 };
 
