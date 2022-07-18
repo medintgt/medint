@@ -17,9 +17,9 @@ const ShowTherapy = () => {
       <Entry name="Treatment" value="Meds, Therapy, Neural" />
       <Entry name="Comments" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in dui eget felis dapibus laoreet. Nam non vulputate turpis. Pellentesque eleifend commodo pharetra." />
       <ShowImageGroup
-        image1="/avatar5.png"
+        image1="/avatar3.png"
         image2="/avatar4.png"
-        image3="/avatar4.png"
+        image3="/avatar5.png"
       />
       <div className="pt-4 grid place-items-center">
         <SecondaryButton type="submit" text="Edit" />
