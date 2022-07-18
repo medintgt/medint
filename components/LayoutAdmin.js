@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
       <NavbarAdmin />
       {children}
       <footer className="container mx-auto flex justify-end">
-            <Link href='/changelog'>
+            <Link href='/app/changelog'>
             <a>
             <p className="text-sky-800">Version 2.0.0</p>
             </a>
