@@ -6,14 +6,14 @@ import Link from "next/link";
  */
 
 const items = [
-  { title: "New Appointment", link: "/app/appointments/new", icon: "calendar" },
-  { title: "New Therapy", link: "/app/therapies/new", icon: "stethoscope" },
-  { title: "New Sale", link: "/app/sales/new", icon: "dollar" },
-  { title: "New Data", link: "/app/data/new-entry", icon: "layers" },
-  { title: "New Movement", link: "/app/movements/new", icon: "pharmacy" },
-  { title: "New Product", link: "/app/products/new", icon: "shopping-bag-add" },
-  { title: "New Patient", link: "/app/patients/new", icon: "user-add" },
-  { title: "New Prescription", link: "/app/prescriptions/new", icon: "receipt" },
+  { title: "Nueva Cita", link: "/app/appointments/new", icon: "calendar" },
+  { title: "Nueva Historia", link: "/app/histories/new", icon: "stethoscope" },
+  { title: "Nueva Venta", link: "/app/sales/new", icon: "dollar" },
+  { title: "Nuevo Dato", link: "/app/data/new-entry", icon: "layers" },
+  { title: "Nuevo Movimiento", link: "/app/movements/new", icon: "pharmacy" },
+  { title: "Nuevo Producto", link: "/app/products/new", icon: "shopping-bag-add" },
+  { title: "Nuevo Paciente", link: "/app/patients/new", icon: "user-add" },
+  { title: "Nueva Prescripción", link: "/app/prescriptions/new", icon: "receipt" },
 ];
 
 const QuickActions = () => {

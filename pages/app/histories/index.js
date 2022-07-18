@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "@components/Admin/Title";
-import ShowTherapiesCard from "@components/Admin/Therapies/ShowTherapiesCard";
+import ShowHistoriesCard from "@components/Admin/Histories/ShowHistoriesCard";
 import QuickActions from "@components/Admin/Buttons/QuickActions";
 import SearchTab from "@components/Admin/Search/SearchTab";
 import LayoutAdmin from "@components/LayoutAdmin";
@@ -11,12 +11,12 @@ const Therapies = () => {
     <LayoutAdmin>
 
     <div className="container mx-auto grid justify-center">
-      <Title title="Therapies" src="/" breadcrumb="Dashboard" />
+      <Title title="Historias" src="/" breadcrumb="Escritorio" />
       <SearchTab
-        title="Search Therapie"
-        placeholder="Search by id, patient name or id..."
+        title="Buscar Historia"
+        placeholder="Buscar por id, nombre o dpi..."
         />
-      <ShowTherapiesCard />
+      <ShowHistoriesCard />
       {/* Add Statistics: Most common diagnostic; Therapies on the month, week and day.; Most common treatment. */}
       <QuickActions />
     </div>

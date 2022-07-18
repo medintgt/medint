@@ -1,6 +1,5 @@
 import LayoutAdmin from "@components/LayoutAdmin";
 import React from "react";
-import QuickActions from "@components/Admin/Buttons/QuickActions";
 import ImportantInfo from "@components/Admin/Cards/ImportantInfo";
 import Statistics from "@components/Admin/Cards/Statistics"
 import { ShowAppointments } from "@components/Admin/Appointments/ShowAppointments";
@@ -33,7 +32,6 @@ const Dashboard = () => {
       />
       <ShowAppointments />
       <ImportantInfo value1="12312031" value2="Traumeel S" />
-      <QuickActions />
     </div>
 
     </LayoutAdmin>

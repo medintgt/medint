@@ -16,7 +16,7 @@ const ShowTherapiesCard = () => {
       <ul>
         {therapiesArray.map((therapy) => (
           <li key={therapy.id} className="text-lg flex justify-between px-4 py-2">
-            <Link href={`/therapies/${therapy.id}`}>
+            <Link href={`/app/histories/${therapy.id}`}>
               <a>
                 <span className="cursor-pointer text-sky-800">
                   {therapy.id}

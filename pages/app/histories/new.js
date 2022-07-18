@@ -1,5 +1,5 @@
 import Title from "@components/Admin/Title"
-import CreateTherapy from "@components/Admin/Therapies/CreateTherapy";
+import CreateTherapy from "@components/Admin/Histories/CreateHistory";
 import LayoutAdmin from "@components/LayoutAdmin";
 
 const NewTherapie = () => {
@@ -7,7 +7,7 @@ const NewTherapie = () => {
         <LayoutAdmin>
 
         <div className="container mx-auto grid justify-center">
-            <Title title="New Therapie" src="/therapies" breadcrumb="Therapies"/>
+            <Title title="Nueva Historia" src="/histories" breadcrumb="Historias"/>
             <CreateTherapy />
         </div>
         </LayoutAdmin>
