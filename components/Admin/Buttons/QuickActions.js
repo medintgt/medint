@@ -6,14 +6,14 @@ import Link from "next/link";
  */
 
 const items = [
-  { title: "New Appointment", link: "/appointments/new", icon: "calendar" },
-  { title: "New Therapy", link: "/therapies/new", icon: "stethoscope" },
-  { title: "New Sale", link: "/sales/new", icon: "dollar" },
-  { title: "New Data", link: "/data/new-entry", icon: "layers" },
-  { title: "New Movement", link: "/movements/new", icon: "pharmacy" },
-  { title: "New Product", link: "/products/new", icon: "shopping-bag-add" },
-  { title: "New Patient", link: "/patients/new", icon: "user-add" },
-  { title: "New Prescription", link: "/prescriptions/new", icon: "receipt" },
+  { title: "New Appointment", link: "/app/appointments/new", icon: "calendar" },
+  { title: "New Therapy", link: "/app/therapies/new", icon: "stethoscope" },
+  { title: "New Sale", link: "/app/sales/new", icon: "dollar" },
+  { title: "New Data", link: "/app/data/new-entry", icon: "layers" },
+  { title: "New Movement", link: "/app/movements/new", icon: "pharmacy" },
+  { title: "New Product", link: "/app/products/new", icon: "shopping-bag-add" },
+  { title: "New Patient", link: "/app/patients/new", icon: "user-add" },
+  { title: "New Prescription", link: "/app/prescriptions/new", icon: "receipt" },
 ];
 
 const QuickActions = () => {
@@ -40,7 +40,7 @@ const QuickActions = () => {
       </button>
       <div className={`${state} relative`}>
         <ul
-          className="z-9 fixed bottom-28 p-4 w-72 right-10 h-auto pb-10 shadow-2x1 list-none
+          className="z-10 fixed bottom-28 p-4 w-72 right-10 h-auto pb-10 shadow-2x1 list-none
                         flex flex-col justify-start rounded-md bg-white shadow-2xl"
         >
           {items.map((item) => (
