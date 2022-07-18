@@ -39,7 +39,7 @@ export default function Custom404() {
       </div>
       <div>
       <Image
-                src="/img/error-404.png"
+                src="/error-404.png"
                 alt="Error 404"
                 width="512"
                 height="512"
