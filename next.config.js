@@ -3,5 +3,7 @@ module.exports = {
     locales: ['es', 'en', 'fr'],
     defaultLocale: 'es',
   }, 
-  
+  images: {
+    domains: ['storage.googleapis.com'],
+  },
 }

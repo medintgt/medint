@@ -17,14 +17,14 @@ const Dashboard = () => {
           </a>
       </section>
       <Statistics 
-      name="Patients - Week"
+      name="Pacientes - Semana"
       value1="18"
       title1="First time"
       value2="65"
       title2="Teraphies"
       />
       <Statistics 
-      name="Sells - Week"
+      name="Ventas - Semana"
       value1="34"
       title1="Pharmacy"
       value2="98"

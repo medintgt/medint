@@ -1,0 +1,32 @@
+{
+    "pages": {
+        "app": {
+            "dashboard": {
+
+            }
+        },
+        "home": {
+
+        }
+    },
+    "components": {
+        "admin": {
+            "toogle_menu" : {
+                "dashboard": "Dashboard",
+                "patients": "Patients",
+                "sales": "Sales",
+                "appointments": "Appointments",
+                "products": "Products",
+                "movements": "Movements",
+                "courses": "Courses",
+                "articles": "Articles",
+                "users": "Users",
+                "prescriptions": "Prescriptions",
+                "orders": "Orders"
+            }
+        },
+        "navbar": {
+            
+        }
+    }
+}
