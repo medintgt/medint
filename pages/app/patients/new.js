@@ -9,9 +9,9 @@ const NewPatient = () => {
 
         <div className="container mx-auto grid justify-center">
             <Title 
-            title="New Patient"
+            title="Nuevo Paciente"
             src="/patients"
-            breadcrumb="Patients"
+            breadcrumb="Pacientes"
             />
             <CreatePatient />
         </div>

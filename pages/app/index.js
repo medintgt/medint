@@ -16,22 +16,22 @@ const Dashboard = () => {
             </span>
           </a>
       </section>
+      <ShowAppointments />
       <Statistics 
       name="Pacientes - Semana"
       value1="18"
-      title1="First time"
+      title1="Creados"
       value2="65"
-      title2="Teraphies"
+      title2="Historias"
       />
       <Statistics 
       name="Ventas - Semana"
       value1="34"
-      title1="Pharmacy"
+      title1="Productos"
       value2="98"
-      title2="Courses"
+      title2="Servicios"
       />
-      <ShowAppointments />
-      <ImportantInfo value1="12312031" value2="Traumeel S" />
+      <ImportantInfo value1="3 Unidades" value2="Traumeel S" />
     </div>
 
     </LayoutAdmin>

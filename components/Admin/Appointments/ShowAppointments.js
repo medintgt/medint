@@ -27,7 +27,7 @@ export const ShowAppointments = () => {
           ));
       return (
     <section className="my-4 max-w-md md:w-96 w-80 bg-white shadow-2xl p-3 rounded-md">
-      <h2 className="text-xl">Appointments - Today</h2>
+      <h2 className="text-xl">Citas - Hoy</h2>
       {dataList}
     </section>
   );
