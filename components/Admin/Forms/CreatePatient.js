@@ -7,7 +7,6 @@ import Select from "./Elements/Select";
 import { useState, useEffect } from "react";
 
 const CreatePatient = () => {
-    const [departments, setDepartments] = useState(null);
     const countries = [
         { value: "GTM", text: "Guatemala" },
         { value: "SLV", text: "El Salvador" },

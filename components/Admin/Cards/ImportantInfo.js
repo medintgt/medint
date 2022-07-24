@@ -5,7 +5,7 @@ const ImportantInfo = (props) => {
     <section className="my-4 max-w-md md:w-96 bg-white shadow-2xl p-3 rounded-md">
       <h2 className="flex justify-center items-center text-xl">
         <i className="fi-rr-angle-small-left grid place-items-center px-4 cursor-pointer"></i>
-        Low Stock
+        Poco inventario
         <i className="fi-rr-angle-small-right grid place-items-center px-4 cursor-pointer"></i>
       </h2>
       <ul>
