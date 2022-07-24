@@ -9,7 +9,7 @@ const Dashboard = () => {
     <LayoutAdmin>
     <div className="container mx-auto grid justify-center">
       <section className="flex justify-between py-4">
-        <h1 className="text-2xl">Dashboard</h1>
+        <h1 className="text-2xl">Escritorio</h1>
           <a>
             <span className="text-xl flex items-center cursor-pointer">
               <i className="grid place-items-center pr-2"></i>
@@ -31,7 +31,7 @@ const Dashboard = () => {
       value2="98"
       title2="Servicios"
       />
-      <ImportantInfo value1="3 Unidades" value2="Traumeel S" />
+      <ImportantInfo value1="Traumeel S" value2="2 unidades" />
     </div>
 
     </LayoutAdmin>

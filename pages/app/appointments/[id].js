@@ -11,9 +11,9 @@ const Appointment = () => {
         <LayoutAdmin>
         <div className="container mx-auto grid justify-center">
             <Title 
-            title="Appointment"
+            title="Cita"
             src="/appointments"
-            breadcrumb="Appointments"
+            breadcrumb="Citas"
             />
             <ApointmentCard 
             id={id}/>

@@ -11,9 +11,9 @@ const Appointments = () => {
 
         <div className="container mx-auto grid justify-center">
             <Title 
-            title="Appointments"
+            title="Citas"
             src="/"
-            breadcrumb="Dashboard"
+            breadcrumb="Escritorio"
             />
             <ShowAppointments />
             <ShowAllLink text="Show all appointments" link="/appointments/all" />
