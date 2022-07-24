@@ -11,7 +11,7 @@ const Patient = () => {
     return (
     <LayoutAdmin>
     <div className="container mx-auto grid justify-center">
-        <Title title="Patient" src="/patients" breadcrumb="Patients"/>
+        <Title title="Editar Paciente" src="/patients" breadcrumb="Pacientes"/>
         <EditPatient id={id} />
     </div>
     </LayoutAdmin>

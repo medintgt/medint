@@ -10,8 +10,14 @@ const Patient = () => {
 return (
     <LayoutAdmin>
     <div className="container mx-auto grid justify-center">
-        <Title title="Patient" src="/patients" breadcrumb="Patients"/>
+        <Title title="Paciente" src="/patients" breadcrumb="Pacientes"/>
         <ShowPatient id={id} />
+        <section className="flex justify-between py-4">
+        <h1 className="text-2xl">Casos medicos</h1>
+        </section>
+        <section className="flex justify-between py-4">
+        <h1 className="text-2xl">Datos</h1>
+        </section>
     </div>
     </LayoutAdmin>
 );

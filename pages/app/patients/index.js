@@ -10,13 +10,12 @@ const Patients = () => {
         <LayoutAdmin>
         <div className="container mx-auto grid justify-center">
             <Title 
-            title="Patients"
+            title="Pacientes"
             src="/"
-            breadcrumb="Dashboard"
+            breadcrumb="Escritorio"
             />
-            <SearchTab title="Search Patient" placeholder="Search by Id, name or country ID..." />
+            <SearchTab title="Buscar paciente " placeholder="Buscar por nombre o DPI..." />
             <ShowPatients />
-            <ShowAllLink text="Show all patients" link="/app/patients/all"/>
         </div>
         </LayoutAdmin>
     );
