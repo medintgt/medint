@@ -28,7 +28,7 @@ const ShowPatient = (props) => {
   if (data != null) {
     return (
       <div className="my-4 max-w-md  md:w-96 h-auto p-3">
-        <Entry name="Usuario" value={data.user_id} />
+        <Entry name="Usuario" value={data.email}  />
         <Entry name="Primer Nombre" value={data.first_name} />
         <Entry name="Segundo Nombre" value={data.middle_name} />
         <Entry name="Apellidos" value={data.last_name} />
@@ -48,7 +48,7 @@ const ShowPatient = (props) => {
     );
   } else {
     <div className="my-4 max-w-md md:w-96 h-auto p-3">
-      <h2 className="text-center text-lg">Data is being loaded...</h2>
+      <h2 className="text-center text-lg">Los datos estan cargando...</h2>
     </div>;
   }
 };

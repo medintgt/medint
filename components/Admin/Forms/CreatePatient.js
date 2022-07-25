@@ -35,7 +35,7 @@ const CreatePatient = () => {
     <form className="my-4 max-w-md  md:w-96 h-auto p-3" action="">
       <Input
         label="Usuario"
-        placeholder="Buscar usuario (si aplica)"
+        placeholder="example@example.com"
         type="text"
       />
       <Input label="Primer Nombre" placeholder="John" type="text" />

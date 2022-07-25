@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "@components/Admin/Title"
-import SearchTab from "@components/Admin/Search/SearchTab";
+import SearchPatient from "@components/Admin/Patients/SearchPatient";
 import ShowPatients from "@components/Admin/Patients/ShowPatients";
 import ShowAllLink from "@components/Admin/Show/Elements/Link/ShowAllLink"
 import LayoutAdmin from "@components/LayoutAdmin";
@@ -14,7 +14,7 @@ const Patients = () => {
             src="/"
             breadcrumb="Escritorio"
             />
-            <SearchTab title="Buscar paciente " placeholder="Buscar por nombre o DPI..." />
+            <SearchPatient title="Buscar paciente " placeholder="Buscar por nombre o DPI..." />
             <ShowPatients />
         </div>
         </LayoutAdmin>

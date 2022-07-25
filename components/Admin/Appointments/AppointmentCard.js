@@ -38,7 +38,7 @@ export const ApointmentCard = (props) => {
   } else {
     return (
       <section className="my-4 max-w-md md:w-96 bg-white shadow-2xl p-3 rounded-md">
-        <h2 className="text-xl text-center">Data is being loaded...</h2>
+        <h2 className="text-xl text-center">Los datos estan cargando...</h2>
       </section>
       )
     }

@@ -19,7 +19,7 @@ if (data != null) {
   
   return (
     <section className="my-4 max-w-md md:w-96 bg-white shadow-2xl p-3 rounded-md">
-      <h2 className="text-xl">Recent created</h2>
+      <h2 className="text-xl">Creados Recientemente</h2>
       <ul>
         {data.map((patient) => (
           <li key={patient._id} className="text-lg flex justify-between px-4 py-1">
