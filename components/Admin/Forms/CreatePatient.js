@@ -5,6 +5,7 @@ import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 import ImageGroup from "./Elements/ImageGroup";
 import Select from "./Elements/Select";
 import { useState, useEffect } from "react";
+import SearchUserInput from "@components/Admin/Users/SearchUserInput";
 
 const CreatePatient = () => {
     const countries = [
@@ -33,7 +34,7 @@ const CreatePatient = () => {
   ];
   return (
     <form className="my-4 max-w-md  md:w-96 h-auto p-3" action="">
-      <Input
+      <SearchUserInput
         label="Usuario"
         placeholder="example@example.com"
         type="text"
