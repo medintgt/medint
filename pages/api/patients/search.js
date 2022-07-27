@@ -27,7 +27,7 @@ export default async function handler(req, res) {
   try {
     const { db } = await connectToDatabase();
     const data = await db
-      .collection("users")
+      .collection("patients")
       .find({ email: regex  })
       .limit(3)
       .toArray();

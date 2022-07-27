@@ -33,7 +33,6 @@ const Dashboard = () => {
       />
       <ImportantInfo value1="Traumeel S" value2="2 unidades" />
     </div>
-
     </LayoutAdmin>
   );
 };
