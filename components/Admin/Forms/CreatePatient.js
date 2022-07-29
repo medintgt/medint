@@ -1,15 +1,12 @@
 import React from "react";
-import Input from "@components/Admin/Forms/Elements/Input";
-import Textarea from "@components/Admin/Forms/Elements/Textarea";
-import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
-import ImageGroup from "./Elements/ImageGroup";
-import Select from "./Elements/Select";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchUserInput from "@components/Admin/Users/SearchUserInput";
+import axios from "axios";
 
 const CreatePatient = () => {
   const [user, setUser] = useState("");
   const [data, setData] = useState({
+    email: "",
     first_name: "",
     middle_name: "",
     last_name: "",
@@ -29,6 +26,15 @@ const CreatePatient = () => {
     ...updatedData,
   }));
 }
+  const sendData = async () => {
+    const response = await axios.post(`/api/patients/new/`, data);
+    let responseData = response.data;
+    if (responseData.acknowledged == true) {
+      window.location.href = `/app/patients/${responseData.insertedId}`;
+    } else {
+      console.log("Hubo un error")
+    }
+  };
   const countries = [
     { value: "GTM", text: "Guatemala" },
     { value: "SLV", text: "El Salvador" },
@@ -193,7 +199,7 @@ const CreatePatient = () => {
       </div>
     </div>
       <div className="pt-4 grid place-items-center">
-        <PrimaryButton text="Crear Paciente" />
+        <button type="button" className="cursor-pointer w-72 text-2xl bg-sky-800 h-12 rounded-full text-white text-center p-2" onClick={sendData}>Crear Paciente</button>
       </div>
     </form>
   );

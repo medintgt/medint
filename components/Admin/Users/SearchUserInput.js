@@ -29,7 +29,7 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
         <div className="pt-2 grid place-items-center">
           <input
             name="user"
-            onChange={(e) => {valueChange(e), handleChange(e, "user")}}
+            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
             placeholder="example@example.com"
             className="lowercase mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             type="text"
@@ -45,7 +45,7 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
         <div className="pt-2 grid place-items-center">
           <input
             name="user"
-            onChange={(e) => {valueChange(e), handleChange(e, "user")}}
+            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
             placeholder="example@example.com"
             className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
@@ -64,7 +64,7 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
         <div className="pt-2 grid place-items-center">
           <input
             name="user"
-            onChange={(e) => {valueChange(e), handleChange(e, "user")}}
+            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
             placeholder="example@example.com"
             className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
