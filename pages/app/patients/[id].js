@@ -13,7 +13,7 @@ return (
         <Title title="Paciente" src="/patients" breadcrumb="Pacientes"/>
         <ShowPatient id={id} />
         <section className="flex justify-between py-4">
-        <h1 className="text-2xl">Casos medicos</h1>
+        <h1 className="text-2xl">Historial médico</h1>
         </section>
         <section className="flex justify-between py-4">
         <h1 className="text-2xl">Datos</h1>

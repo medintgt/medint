@@ -8,46 +8,190 @@ import { useState, useEffect } from "react";
 import SearchUserInput from "@components/Admin/Users/SearchUserInput";
 
 const CreatePatient = () => {
-    const countries = [
-        { value: "GTM", text: "Guatemala" },
-        { value: "SLV", text: "El Salvador" },
-        { value: "MEX", text: "Mexico" },
-        { value: "HND", text: "Honduras" },
-        { value: "USA", text: "Estados Unidos" },
-        { value: "PAN", text: "Panama" },
-        { value: "CRI", text: "Costa Rica" },
-        { value: "NIC", text: "Nicaragua" },
-        { value: "BLZ", text: "Belize" },
-        { value: "no-specified", text: "Otro" },
-      ];
-      const academic = [
-        { value: "0", text: "Ninguno" },
-        { value: "1", text: "Primaria" },
-        { value: "2", text: "Básico" },
-        { value: "3", text: "Diversificado" },
-        { value: "4", text: "Superior" }
-        
-      ];
-    const gender = [
+  const [user, setUser] = useState("");
+  const [data, setData] = useState({
+    first_name: "",
+    middle_name: "",
+    last_name: "",
+    dpi: "",
+    born_date: "",
+    profession: "",
+    academic_level: 0,
+    country: "GTM",
+    gender: 0,
+  });
+  const handleChange = (e, type) => {
+  let updatedData = {
+      [type] : e.target.value,
+  };
+  setData((data) => ({
+    ...data,
+    ...updatedData,
+  }));
+}
+  const countries = [
+    { value: "GTM", text: "Guatemala" },
+    { value: "SLV", text: "El Salvador" },
+    { value: "MEX", text: "Mexico" },
+    { value: "HND", text: "Honduras" },
+    { value: "USA", text: "Estados Unidos" },
+    { value: "PAN", text: "Panama" },
+    { value: "CRI", text: "Costa Rica" },
+    { value: "NIC", text: "Nicaragua" },
+    { value: "BLZ", text: "Belize" },
+    { value: "no-specified", text: "Otro" },
+  ];
+  const academic = [
+    { value: "0", text: "Ninguno" },
+    { value: "1", text: "Primaria" },
+    { value: "2", text: "Básico" },
+    { value: "3", text: "Diversificado" },
+    { value: "4", text: "Superior" },
+  ];
+  const gender = [
     { value: "0", text: "Masculino" },
     { value: "1", text: "Femenino" },
   ];
+  let date = new Date();
   return (
-    <form className="my-4 max-w-md  md:w-96 h-auto p-3" action="">
+    <form
+      className="my-4 max-w-md  md:w-96 h-auto p-3"
+      method="POST"
+    >
       <SearchUserInput
-        label="Usuario"
-        placeholder="example@example.com"
-        type="text"
+        handleChange={handleChange}
+        user={user}
+        setUser={setUser}
       />
-      <Input label="Primer Nombre" placeholder="John" type="text" />
-      <Input label="Segundo Nombre" placeholder="Richard" type="text" />
-      <Input label="Apellidos" placeholder="Doe" type="text" />
-      <Input label="DPI/CUI" placeholder="1234567890987" type="number" />
-      <Input label="Fecha de nacimiento" type="date" />
-      <Input label="Ocupacion" placeholder="Bombero" type="text"/>
-      <Select label="Nivel Academico" options={academic} />
-      <Select label="País" options={countries} />
-      <Select label="Genero" options={gender} />
+      <div>
+        <label className="text-lg text-gray-400">Primer Nombre</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "first_name")}
+            placeholder="John"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="first_name"
+            type="text"
+            value={data.first_name}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Segundo Nombre</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "middle_name")}
+            placeholder="Richard"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="middle_name"
+            type="text"
+            value={data.middle_name}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Apellidos</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "last_name")}
+            placeholder="Doe"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="last_name"
+            type="text"
+            value={data.last_name}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">DPI/CUI</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "dpi")}
+            placeholder="3030292998987"
+            min="1000000000000"
+            max="9999999999999"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="dpi"
+            type="number"
+            value={data.dpi}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Fecha de nacimiento</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "born_date")}
+            placeholder="Doe"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="born_date"
+            type="date"
+            max={date.toISOString().split('T')[0]}
+            value={data.born_date}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Profesión</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "profession")}
+            placeholder="Profesión"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="profession"
+            type="text"
+            value={data.profession}
+          ></input>
+        </div>
+      </div>
+      <div>
+      <label className="text-lg text-gray-400">Nivel académico</label>
+      <div className=" pt-2 grid place-items-center">
+        <select
+          className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+          name="academic_level"
+          onChange={(e) => handleChange(e, "academic_level")}
+        >
+            {
+          academic.map(option => (
+            <option key={option.value} value={option.value}>{option.text}</option>
+          ))
+        }
+        </select>
+      </div>
+    </div>
+    <div>
+      <label className="text-lg text-gray-400">País</label>
+      <div className=" pt-2 grid place-items-center">
+        <select
+          className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+          name="country"
+          onChange={(e) => handleChange(e, "country")}
+        >
+            {
+          countries.map(option => (
+            <option key={option.value} value={option.value}>{option.text}</option>
+          ))
+        }
+        </select>
+      </div>
+    </div>
+    <div>
+      <label className="text-lg text-gray-400">Genero</label>
+      <div className=" pt-2 grid place-items-center">
+        <select
+          className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+          name="gender"
+          onChange={(e) => handleChange(e, "gender")}
+        >
+            {
+          gender.map(option => (
+            <option key={option.value} value={option.value}>{option.text}</option>
+          ))
+        }
+        </select>
+      </div>
+    </div>
       <div className="pt-4 grid place-items-center">
         <PrimaryButton text="Crear Paciente" />
       </div>

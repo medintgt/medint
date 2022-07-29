@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const SearchUserInput = (props) => {
-  const [user, setUser] = useState("");
+const SearchUserInput = ({user, setUser, handleChange}) => {
   const [data, setData] = useState(null);
 
-  async function getData() {
+  async function getData(event) {
     const response = await axios.post("/api/users/search", {
       email: event.target.value,
     });
@@ -19,21 +18,21 @@ const SearchUserInput = (props) => {
   const valueChange = (event) => {
     setUser(event.target.value);
     if (user.length >= 2) {
-      getData();
+      getData(event);
     }
-    console.log(data);
   };
-  if (data == null) {
+  const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  if (data == null || user == "" || user == validEmail) {
     return (
       <div>
-        <label className="text-lg text-gray-400">{props.label}</label>
+        <label className="text-lg text-gray-400">Usuario</label>
         <div className="pt-2 grid place-items-center">
           <input
             name="user"
-            onChange={valueChange}
-            placeholder={props.placeholder}
+            onChange={(e) => {valueChange(e), handleChange(e, "user")}}
+            placeholder="example@example.com"
             className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
-            type={props.type}
+            type="text"
             value={user}
           ></input>
         </div>
@@ -42,18 +41,18 @@ const SearchUserInput = (props) => {
   } else if (data.length === 0) {
     return (
       <div>
-        <label className="text-lg text-gray-400">{props.label}</label>
+        <label className="text-lg text-gray-400">Usuario</label>
         <div className="pt-2 grid place-items-center">
           <input
             name="user"
-            onChange={valueChange}
-            placeholder={props.placeholder}
+            onChange={(e) => {valueChange(e), handleChange(e, "user")}}
+            placeholder="example@example.com"
             className="mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
-            type={props.type}
+            type="text"
             value={user}
           ></input>
           <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">
-            <p className="cursor-pointer text-gray-800">Sin coincidencias.</p>
+            <p className="text-gray-800">Sin coincidencias.</p>
           </div>
         </div>
       </div>
@@ -61,14 +60,14 @@ const SearchUserInput = (props) => {
   } else {
     return (
       <div>
-        <label className="text-lg text-gray-400">{props.label}</label>
+        <label className="text-lg text-gray-400">Usuario</label>
         <div className="pt-2 grid place-items-center">
           <input
             name="user"
-            onChange={valueChange}
-            placeholder={props.placeholder}
+            onChange={(e) => {valueChange(e), handleChange(e, "user")}}
+            placeholder="example@example.com"
             className="mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
-            type={props.type}
+            type="text"
             value={user}
           ></input>
           <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">

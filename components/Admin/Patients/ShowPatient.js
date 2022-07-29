@@ -28,6 +28,7 @@ const ShowPatient = (props) => {
   if (data != null) {
     return (
       <div className="my-4 max-w-md  md:w-96 h-auto p-3">
+        <Entry name="Código único" value={data._id}  />
         <Entry name="Usuario" value={data.email}  />
         <Entry name="Primer Nombre" value={data.first_name} />
         <Entry name="Segundo Nombre" value={data.middle_name} />
