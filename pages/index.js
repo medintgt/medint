@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Hero from "../components/Hero/Hero";
-import aboutPic from "../public/mountain.png";
+import aboutPic from "../public/about-home.jpg";
 import Layout from "../components/Layout"
 import { ShowAllTherapies } from "../components/Therapies/ShowAllTherapies";
 

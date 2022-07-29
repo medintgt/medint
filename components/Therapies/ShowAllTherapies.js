@@ -8,29 +8,24 @@ export const ShowAllTherapies = () => {
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:px-24 gap-4">
         <TherapieCard
-        image="/massage.jpg"
           title="Masaje"
-          description="Técnica utilizada para relajar, mejorar circulación, reducir inflamación y aliviar el dolor, en enfermedades reumáticas."
+          description="Es una forma de manipular el cuerpo atravez de una presión con las manos, puede ser de una forma suave o intensa. Lo que se busca atravez de estas manipulaciones o masajes es que el paciente sienta beneficios de relajaciòn, reducción del dolor y estres."
         />
         <TherapieCard
-        image="/manual-therapy.jpg"
           title="Terapia Manual"
-          description="Conjunto de técnicas y maniobras que mediante la manipulación de tejidos corporales que buscan promover la reparación tisular."
+          description="Son técnicas que se utilizan para ayudar al paciente atravvez de manipular el cuerpo por medio de ejercicios o estiramientos del cuerpo y masaje neuro-muscular, ayudanto a aliviar dolor muscular y artícular, se utiliza en personas con problemas de espalda (columna vertebral), dolor intenso en musculos y problemas del nervio ciático"
         />
         <TherapieCard
-        image="/cupping.jpg"
           title="Ventosas"
-          description="Aplicación de ventosas sobre la piel, con la finalidad de crear un vacío al succionar lo que provoca hiperemia local."
+          description="Se utilizan para ayudar a los pacientes a mejorar la tensión musuclar, baja inflamación y ayuda a tener una mejor circulación sanguinea. Se pueden utilizar en cualquier área del cuerpo que no presente sintomas de varices, heridas y fracturas, tambien debe evitarse poner a personas embarazads, con fiebres o sobre fracturas."
         />
         <TherapieCard
-        image="/meso.jpg"
           title="Mesoterapia"
-          description="Técnica de medicina alternativa que consiste en inyectar medicamentos específicos en muy pequeñas dosis en la capa media de la piel con la finalidad de combatir el dolor."
+          description="Es una técnica que se utiliza por medio de pequeñas agujas, inyectando medicamentos homeopaticos sobre la capa de la piel, es utilizado para quitar o aliviar dolores musculares. Tambien se utiliza en tratamentos esteticos."
         />
         <TherapieCard
-          image="/massage.jpg"
           title="Terapia Neural"
-          description="Corrige las alteraciones bioeléctricas del organismo enfermo que, como las bioquímicas, participan en la pérdida de la salud"
+          description="Sirve para estimular la autocuración del cuerpo por medio de inyecciones en puntos especificos del sistema nervioso, se puede aplicar en heridas o cicatrices que el paciente tenga por tiempo prolongado que provocan irritacione que prodian ser detonantesn en algunas enfermedads. La terapia neural logra muchas veces una mejoria inmediata y aveces hay que repetir la dosis hasta llegar a quitar los sintomas del dolor o molestias. Se puede aplicar en niños, mujeres embarazadas y cualquier persona."
         />
       </div>
     </section>
