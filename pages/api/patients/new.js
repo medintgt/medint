@@ -2,9 +2,11 @@ import { connectToDatabase } from "@middleware/database";
     import { ObjectId } from "mongodb";
 
 export default async function handler(req, res){
+    let todayDate = new Date()
 if (req.method == "POST") {
     const post = req.body;
     const insertThis = {
+        "email": post.email,
         "first_name": post.first_name,
         "middle_name": post.middle_name,
         "last_name": post.last_name,
@@ -21,7 +23,9 @@ if (req.method == "POST") {
         "gender": post.gender,
         "marital_status": post.marital_status,
         "profession": post.profession,
-        "retired": ""
+        "retired": "",
+        "creation_date" : todayDate.toISOString()
+        
     }
     async function insertData() {
         const {db} = await connectToDatabase();
