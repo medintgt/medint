@@ -19,16 +19,16 @@ const Dashboard = () => {
       <ShowAppointments />
       <Statistics 
       name="Pacientes - Semana"
-      value1="18"
+      value1="150"
       title1="Creados"
-      value2="65"
+      value2="0"
       title2="Historias"
       />
       <Statistics 
       name="Ventas - Semana"
-      value1="34"
+      value1="0"
       title1="Productos"
-      value2="98"
+      value2="0"
       title2="Servicios"
       />
       <ImportantInfo value1="Traumeel S" value2="2 unidades" />
