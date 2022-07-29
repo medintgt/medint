@@ -31,7 +31,7 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
             name="user"
             onChange={(e) => {valueChange(e), handleChange(e, "user")}}
             placeholder="example@example.com"
-            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            className="lowercase mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             type="text"
             value={user}
           ></input>
@@ -47,7 +47,7 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
             name="user"
             onChange={(e) => {valueChange(e), handleChange(e, "user")}}
             placeholder="example@example.com"
-            className="mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
+            className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
             value={user}
           ></input>
@@ -66,7 +66,7 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
             name="user"
             onChange={(e) => {valueChange(e), handleChange(e, "user")}}
             placeholder="example@example.com"
-            className="mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
+            className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
             value={user}
           ></input>
