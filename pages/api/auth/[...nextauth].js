@@ -16,7 +16,12 @@ export default NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const user = { id: 1, name: credentials.username, email: credentials.password }
+        const response = await axios.post("/api/users/auth", {
+          email: credentials.email,
+        });
+        if (response) {
+          var user = { id: response._id, authorization: response.authorization, state: response.state}
+        }
   
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
