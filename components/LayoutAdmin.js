@@ -3,7 +3,7 @@ import NavbarAdmin from "@components/Admin/Navbar/Navbar";
 import Link from "next/link"
 import QuickActions from "@components/Admin/Buttons/QuickActions";
 
-const Layout = ({ children }) => {
+const LayoutAdmin = ({ children }) => {
   return (
     <div>
       <NavbarAdmin />
@@ -20,4 +20,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default LayoutAdmin;
