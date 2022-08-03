@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from "next-auth/providers/credentials"
+import axios from "axios"
 
 export default NextAuth({
   providers: [
@@ -16,7 +17,7 @@ export default NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const response = await axios.post("/api/users/auth", {
+        const response = await axios.post(`${process.env.NEXTAUTH_URL}/api/users/auth`, {
           email: credentials.email,
         });
         if (response) {
