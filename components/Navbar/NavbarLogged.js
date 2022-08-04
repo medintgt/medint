@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo.svg"
+import { useSession, signIn, signOut } from "next-auth/react"
+import ToogleMenu from "./ToogleMenu";
 
 const NavbarLogged = () => {
+  const { data: session } = useSession()
   return (
     <header className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
       <Link href="/app">
@@ -16,6 +19,7 @@ const NavbarLogged = () => {
       </Link>
       <div>
         <nav className="text-lg flex items-center">
+          <ToogleMenu />
           <div className=" hidden lg:flex">
           <Link href="/therapies">
               <a className="m-4 hover:text-main">Terapias</a>
@@ -29,14 +33,17 @@ const NavbarLogged = () => {
             <Link href="/articles">
               <a className="m-4 hover:text-main">Artículos</a>
             </Link>
+            <Link href="/app">
+              <a className="m-4 hover:text-main">Escritorio</a>
+            </Link>
           </div>
-          <i className="fi-rr-menu-burger text-3xl cursor-pointer lg:hidden align-middle md:mr-4 p-2"></i>
           <i className="fi-rr-shopping-cart text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main" title="Shopping Cart"></i>
           <span className="text-3xl w-10 ml-2">
           <Image
             className="rounded-full cursor-pointer"
             src="/user1.jpg"
-            alt="User"
+            alt={session.user.name}
+            title={session.user.name}
             width="40"
             height="40"
           />

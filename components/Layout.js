@@ -2,10 +2,12 @@ import React from "react";
 import Navbar from "./Navbar/Navbar";
 import NavbarLogged from "./Navbar/NavbarLogged";
 import Footer from "./Footer/Footer";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 
 const Layout = ({ children }) => {
-  if (true) {
+  const { data: session } = useSession()
+  if (!session) {
     return (
       <div>
         <Navbar />

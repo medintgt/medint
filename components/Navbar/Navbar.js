@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo.svg";
 import ToogleMenu from "./ToogleMenu";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Navbar = () => {
+  
   const messages = {
     es: {
       GREETING: "Terapias",
@@ -44,14 +46,11 @@ const Navbar = () => {
             className="fi-rr-shopping-cart text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main hidden"
             title="Shopping Cart"
           ></i>
-          <Link href="/login">
-            <a>
               <i
+                onClick={() => signIn()}
                 className="fi-rr-sign-in-alt text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main"
                 title="Sign In"
               ></i>
-            </a>
-          </Link>
           <span className="text-3xl w-10 ml-2 hidden">
             <Image
               className="rounded-full cursor-pointer"
