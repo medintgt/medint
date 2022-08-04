@@ -16,8 +16,7 @@ export default async function handler(req, res){
     if (data == null) {
       return res.status(400).send("This user does not exist.")
     }
-
-    if (data.password === process.env.NEXTAUTH_SECRET) {
+    if (data.password === password) {
       return res.status(200).json(data)
     } else {
       return res.status(400).send("Wrong password.")
