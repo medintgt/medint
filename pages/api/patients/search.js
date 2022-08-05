@@ -21,14 +21,14 @@ function runMiddleware(req, res, fn) {
 export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
 
-  const filter = req.body;
-  const regex = new RegExp(filter.email);
+  var filter = req.body;
+  let pattern =  new RegExp('\\b' + filter.name, 'i');
 
   try {
     const { db } = await connectToDatabase();
     const data = await db
       .collection("patients")
-      .find({ email: regex  })
+      .find({ first_name: pattern  })
       .limit(3)
       .toArray();
     res.status(200).json(data);

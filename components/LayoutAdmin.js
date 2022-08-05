@@ -26,7 +26,7 @@ const LayoutAdmin = ({ children }) => {
     );
   } else {
     return (
-      <div>
+      <div onLoad={() => signIn()}>
       <Navbar />
       <div className="container mx-auto grid place-items-center h-auto py-24">
         <div>
