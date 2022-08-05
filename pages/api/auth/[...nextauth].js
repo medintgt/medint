@@ -41,7 +41,7 @@ export default NextAuth({
         // Get JSON from response
         const user = await res.json();
 
-        if (res.status(200) && user) {
+        if (res.ok && user) {
           // Any object returned will be saved in `user` property of the JWT
           return user;
         } else {
