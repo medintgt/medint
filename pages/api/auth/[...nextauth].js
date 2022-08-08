@@ -1,8 +1,13 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import axios from "axios";
 
 export default NextAuth({
+  theme: {
+    colorScheme: "auto", // "auto" | "dark" | "light"
+    brandColor: "#5181C2", // Hex color code
+    logo: "https://storage.googleapis.com/medint/public/logo.svg", // Absolute URL to image
+    buttonText: "" // Hex color code
+  },
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")

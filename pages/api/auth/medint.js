@@ -1,5 +1,4 @@
 import { connectToDatabase } from "@middleware/database";
-import { ObjectId } from "mongodb";
 
 export default async function handler(req, res){
     if(req.method !== "POST") {
@@ -16,11 +15,11 @@ export default async function handler(req, res){
     const data = await db.collection("users").findOne({email: email});
 
     if (data == null) {
-      return res.status(400).send("This user does not exist.")
+      return res.status(401).end()
     }
     if (data.password === hash) {
       return res.status(200).json(data)
     } else {
-      return res.status(400).send("Wrong password.")
+      return res.status(401).end()
     }
 }

@@ -24,9 +24,9 @@ const LayoutAdmin = ({ children }) => {
         </footer>
       </div>
     );
-  } else {
+  } else if (!session) {
     return (
-      <div onLoad={() => signIn()}>
+      <div>
       <Navbar />
       <div className="container mx-auto grid place-items-center h-auto py-24">
         <div>
@@ -50,7 +50,13 @@ const LayoutAdmin = ({ children }) => {
       <Footer />
     </div>
     )
-  }
+  } else {
+    return (
+        <div className="container mx-auto grid place-items-center h-auto py-24">
+          <h1 className="text-4xl">Cargando...</h1>
+        </div>
+      )
+    }
 };
 
 export default LayoutAdmin;
