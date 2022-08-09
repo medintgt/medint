@@ -1,5 +1,6 @@
 import { connectToDatabase } from "@middleware/database";
 import Cors from "cors";
+import { ObjectId } from "mongodb";
 
 const cors = Cors({
   methods: ["POST", "GET", "HEAD"],
@@ -28,7 +29,7 @@ export default async function handler(req, res) {
     const { db } = await connectToDatabase();
     const data = await db
       .collection("patients")
-      .find({ first_name: pattern  })
+      .find({ $or: [{_id: pattern},  { first_name: pattern}, {middle_name: pattern}, {last_name: pattern}] })
       .limit(3)
       .toArray();
     res.status(200).json(data);

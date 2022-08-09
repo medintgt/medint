@@ -1,39 +1,38 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const SearchUserInput = ({user, setUser, handleChange}) => {
+const SearchPatientInput = ({search, setSearch, handleChange}) => {
   const [data, setData] = useState(null);
 
   async function getData(event) {
     const response = await axios.post("/api/patients/search", {
-      email: event.target.value,
+      name: event.target.value,
     });
     setData(response.data);
   }
 
   function setResult(result) {
-    setUser(result);
+    setSearch(result);
     setData[null];
   }
   const valueChange = (event) => {
-    setUser(event.target.value);
-    if (user.length >= 2) {
+    setSearch(event.target.value);
+    if (search.length >= 2) {
       getData(event);
     }
   };
-  const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-  if (data == null || user == "" || user == validEmail) {
+  if (data == null || search == "") {
     return (
       <div>
-        <label className="text-lg text-gray-400">Usuario</label>
+        <label className="text-lg text-gray-400">Paciente</label>
         <div className="pt-2 grid place-items-center">
           <input
-            name="user"
-            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
-            placeholder="example@example.com"
-            className="lowercase mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="search"
+            onChange={(e) => {valueChange(e), handleChange(e, "search")}}
+            placeholder="Jhon Doe"
+            className="capitalize mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             type="text"
-            value={user}
+            value={search}
           ></input>
         </div>
       </div>
@@ -41,15 +40,15 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
   } else if (data.length === 0) {
     return (
       <div>
-        <label className="text-lg text-gray-400">Usuario</label>
+        <label className="text-lg text-gray-400">Paciente</label>
         <div className="pt-2 grid place-items-center">
           <input
-            name="user"
-            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
-            placeholder="example@example.com"
-            className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
+            name="search"
+            onChange={(e) => {valueChange(e), handleChange(e, "search")}}
+            placeholder="Jhon Doe"
+            className="mx-auto capitalize w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
-            value={user}
+            value={search}
           ></input>
           <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">
             <p className="text-gray-800">Sin coincidencias.</p>
@@ -60,15 +59,15 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
   } else {
     return (
       <div>
-        <label className="text-lg text-gray-400">Usuario</label>
+        <label className="text-lg text-gray-400">Paciente</label>
         <div className="pt-2 grid place-items-center">
           <input
-            name="user"
-            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
-            placeholder="example@example.com"
-            className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
+            name="search"
+            onChange={(e) => {valueChange(e), handleChange(e, "search")}}
+            placeholder="Jhon Doe"
+            className="capitalize mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
-            value={user}
+            value={search}
           ></input>
           <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">
             {data.map((item) => (
@@ -76,10 +75,10 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
                 key={item._id}
                 className="cursor-pointer text-gray-800 hover:text-sky-800"
                 onClick={() => {
-                  setResult(item.email);
+                  setResult(item.first_name + " " + item.middle_name + " " + item.last_name);
                 }}
               >
-                {item.email}
+                {item.first_name + " " + item.middle_name + " " + item.last_name}
               </p>
             ))}
           </div>
@@ -89,4 +88,4 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
   }
 };
 
-export default SearchUserInput;
+export default SearchPatientInput;
