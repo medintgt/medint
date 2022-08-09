@@ -59,13 +59,14 @@ const Navbar = () => {
           </div>
           <Link href="/app/profile">
             <a>
-              <Image
-                className="w-10 h-10 z-8 rounded-full cursor-pointer"
-                src="/user1"
-                alt="User"
-                width="40"
-                height="40"
-              />
+            <Image
+            className="rounded-full cursor-pointer"
+            src="/user1.jpg"
+            alt={session.user.name}
+            title={session.user.name}
+            width="40"
+            height="40"
+          />
             </a>
           </Link>
         </nav>

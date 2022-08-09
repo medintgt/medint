@@ -1,34 +1,98 @@
-import React from "react";
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const SearchPatient = () => {
-  return [
-    <section key="0" className="my-4 max-w-md  md:w-96 h-auto bg-white shadow-2xl p-3 rounded-md">
-      <h2 className="text-xl">Buscar paciente</h2>
-      <div className=" pt-2 grid place-items-center">
-        <input
-          placeholder="Buscar por nombre o DPI..."
-          className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
-          type="text"
-        ></input>
+const SearchUserInput = () => {
+  const [data, setData] = useState(null);
+  const [user, setUser] = useState("");
+  const handleChange = (e, type) => {
+  let updatedData = {
+      [type] : e.target.value,
+  };
+}
+
+  async function getData(event) {
+    const response = await axios.post("/api/patients/search", {
+      email: event.target.value,
+    });
+    setData(response.data);
+  }
+
+  function setResult(result) {
+    setUser(result);
+    setData[null];
+  }
+  const valueChange = (event) => {
+    setUser(event.target.value);
+    if (user.length >= 2) {
+      getData(event);
+    }
+  };
+  const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  if (data == null || user == "" || user == validEmail) {
+    return (
+      <div>
+        <label className="text-lg text-gray-400">Usuario</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            name="user"
+            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
+            placeholder="example@example.com"
+            className="lowercase mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            type="text"
+            value={user}
+          ></input>
+        </div>
       </div>
-    </section>,
-    <section key="1" className="hidden my-4 max-w-md md:w-96 bg-white shadow-2xl p-3 rounded-md">
-    <h2 className="text-xl">Resultados</h2>
-    <ul>
-      {/* {data.map((patient) => (
-        <li key={patient._id} className="text-lg flex justify-between px-4 py-1">
-          <Link href={`/app/patients/${patient._id}`}>
-          <a>
-          <span className="cursor-pointer text-sky-800">{patient.dpi}</span>
-          </a>
-          </Link>
-          <span className="cursor-pointer">{patient.first_name + " " + patient.last_name.split(" ")[0]}</span>
-        </li>
-      ))} */}
-    </ul>
-  </section>
-  ];
+    );
+  } else if (data.length === 0) {
+    return (
+      <div>
+        <label className="text-lg text-gray-400">Paciente</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            name="user"
+            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
+            placeholder="example@example.com"
+            className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
+            type="text"
+            value={user}
+          ></input>
+          <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">
+            <p className="text-gray-800">Sin coincidencias.</p>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <label className="text-lg text-gray-400">Usuario</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            name="user"
+            onChange={(e) => {valueChange(e), handleChange(e, "email")}}
+            placeholder="example@example.com"
+            className="lowercase mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
+            type="text"
+            value={user}
+          ></input>
+          <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">
+            {data.map((item) => (
+              <p
+                key={item._id}
+                className="cursor-pointer text-gray-800 hover:text-sky-800"
+                onClick={() => {
+                  setResult(item.email);
+                }}
+              >
+                {item.email}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
-export default SearchPatient;
+export default SearchUserInput;

@@ -39,14 +39,18 @@ const NavbarLogged = () => {
           </div>
           <i className="fi-rr-shopping-cart text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main" title="Shopping Cart"></i>
           <span className="text-3xl w-10 ml-2">
+          <Link href="/app/profile">
+            <a>
           <Image
             className="rounded-full cursor-pointer"
-            src="/user1.jpg"
+            src={session.user.image}
             alt={session.user.name}
             title={session.user.name}
             width="40"
             height="40"
           />
+          </a>
+          </Link>
           </span>
         </nav>
       </div>
