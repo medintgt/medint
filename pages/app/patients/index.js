@@ -2,7 +2,6 @@ import React from "react";
 import Title from "@components/Admin/Title"
 import SearchPatient from "@components/Admin/Patients/SearchPatient";
 import ShowPatients from "@components/Admin/Patients/ShowPatients";
-import ShowAllLink from "@components/Admin/Show/Elements/Link/ShowAllLink"
 import LayoutAdmin from "@components/LayoutAdmin";
 
 const Patients = () => {
@@ -14,7 +13,7 @@ const Patients = () => {
             src="/"
             breadcrumb="Escritorio"
             />
-            <SearchPatient title="Buscar paciente " placeholder="Buscar por nombre o DPI..." />
+            <SearchPatient/>
             <ShowPatients />
         </div>
         </LayoutAdmin>
