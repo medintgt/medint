@@ -31,16 +31,17 @@ function sayHi(id) {
     const [search, setSearch] = useState("");
     const [professionals, setProfessionals] = useState([]);
     const [data, setData] = useState({
-      patient: "",
-      first_name: "",
-      middle_name: "",
-      last_name: "",
-      dpi: "",
-      born_date: "",
-      profession: "",
-      academic_level: 0,
-      country: "GTM",
-      gender: 0,
+      patient: {
+        id: "",
+        name: "",
+        phone: "",
+      },
+      professional: {
+        id: "",
+        name: "",
+      },
+      date: "",
+      time: ""
     });
 
     useEffect(() => {
@@ -60,6 +61,15 @@ function sayHi(id) {
       ...updatedData,
     }));
   }
+  const sendData = async () => {
+    const response = await axios.post(`/api/appointments/new/`, data);
+    let responseData = response.data;
+    if (responseData.acknowledged == true) {
+      window.location.href = `/app/appointments/${responseData.insertedId}`;
+    } else {
+      console.log("Hubo un error")
+    }
+  };
   return (
     <form className="w-96">
       <SearchPatientInput
@@ -89,7 +99,7 @@ function sayHi(id) {
         )}
           </div>
           <div className=" pt-2 grid place-items-center">
-        <PrimaryButton text="Save" type="button" />
+        <PrimaryButton onClick={() => {sendData()}} text="Save" type="button" />
       </div>
     </form>
   );
