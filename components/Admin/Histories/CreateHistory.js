@@ -4,7 +4,7 @@ import Textarea from "@components/Admin/Forms/Elements/Textarea";
 import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 import ImageGroup from "@components/Admin/Show/Elements/ImageGroup";
 import Select from "@components/Admin/Forms/Elements/Select";
-import SearchPatientInput from "@components/Admin/Histories/SearchPatientInput"
+import SearchPatientInput from "@components/Admin/Patients/SearchPatientInput"
 import { useState } from "react"
 
 const CreateTherapy = () => {
@@ -21,15 +21,6 @@ const CreateTherapy = () => {
     country: "GTM",
     gender: 0,
   });
-  const handleChange = (e, type) => {
-  let updatedData = {
-      [type] : e.target.value,
-  };
-  setData((data) => ({
-    ...data,
-    ...updatedData,
-  }));
-}
   const sendData = async () => {
     const response = await axios.post(`/api/patients/new/`, data);
     let responseData = response.data;
@@ -39,6 +30,15 @@ const CreateTherapy = () => {
       console.log("Hubo un error")
     }
   };
+  const handleChange = (e, type) => {
+  let updatedData = {
+      [type] : e.target.value,
+  };
+  setData((data) => ({
+    ...data,
+    ...updatedData,
+  }));
+}
 
   const options = [
     { value: "0", text: "No" },
@@ -69,7 +69,7 @@ const CreateTherapy = () => {
       />
       <ImageGroup />
       <div className="pt-4 grid place-items-center">
-        <PrimaryButton text="Save Therapy" />
+        <PrimaryButton onClick={() => {sendData()}} text="Save Therapy" />
       </div>
     </form>
   );

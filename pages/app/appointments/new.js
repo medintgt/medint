@@ -9,9 +9,9 @@ const NewAppointment = () => {
 
         <div className="container mx-auto grid justify-center">
             <Title 
-            title="New Appointment"
+            title="Nueva Cita"
             src="/appointments"
-            breadcrumb="Appointments"
+            breadcrumb="Citas"
             />
             <CreateAppointmentForm />
         </div>
