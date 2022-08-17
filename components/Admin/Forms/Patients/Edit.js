@@ -1,6 +1,5 @@
 import React from "react";
 import Input from "@components/Admin/Forms/Elements/Input";
-import Textarea from "@components/Admin/Forms/Elements/Textarea";
 import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 import Select from "@components/Admin/Forms/Elements/Select";
 import { useState, useEffect } from "react";
