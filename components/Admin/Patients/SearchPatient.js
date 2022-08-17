@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Link from "next/Link"
+import Link from "next/link";
 
 const SearchPatient = () => {
   const [search, setSearch] = useState("");
