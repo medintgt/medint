@@ -2,18 +2,26 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { SelectTime } from "./SelectTime";
 import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
-import SearchPatientInput from "@components/Admin/Patients/SearchPatientInput";
+import SearchPatientInput from "@components/Admin/Appointments/SearchPatientInput";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const times = [
   { id: 0, time: "14:00 - 14:30" },
   { id: 1, time: "14:30 - 15:00" },
-  { id: 2, time: "15:00 - 16:30" },
-  { id: 3, time: "16:30 - 17:00" },
-  { id: 4, time: "17:00 - 17:30" },
-  { id: 5, time: "17:30 - 18:00" },
+  { id: 2, time: "15:00 - 15:30" },
+  { id: 3, time: "15:30 - 16:00" },
+  { id: 4, time: "16:00 - 16:30" },
+  { id: 5, time: "16:30 - 17:00" },
+  { id: 6, time: "17:00 - 17:30" },
 ];
+/**
+ * It removes the class "bg-sky-800" and "text-white" from all the elements with the id "select-time-0"
+ * to "select-time-5" and then adds the class "bg-sky-800" and "text-white" to the element with the id
+ * "select-time-id" where id is the parameter passed to the function.
+ * @param id - the id of the element you want to change
+ */
 function changeSelected(id) {
   let i = 0;
   while (i < 6) {
@@ -25,24 +33,30 @@ function changeSelected(id) {
   document.querySelector(`#select-time-${id}`).classList.add("bg-sky-800");
   document.querySelector(`#select-time-${id}`).classList.add("text-white");
 }
+
 export const CreateAppointmentForm = () => {
-  const [date, onChange] = useState(new Date());
+  const { data: session } = useSession()
+  let [date, onChange] = useState(new Date());
   const [search, setSearch] = useState("");
+  const [patient, setPatient] = useState({
+    name: "",
+    id: "",
+    phone: "",
+  });
+  const [professional, setProfessional] = useState({
+    name: "",
+    id: "",
+  });
   const [professionals, setProfessionals] = useState([]);
   const [data, setData] = useState({
-    patient: {
-      id: "",
-      name: "",
-      phone: "",
-    },
-    professional: {
-      id: "",
-      name: "",
-    },
-    date: "",
+    patient: patient,
+    professional: professional,
+    date: date,
     time: "",
+    user_create: session.user.email,
   });
 
+  /* A hook that is called when the component is mounted. It is used to fetch data from the server. */
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`/api/professionals/`);
@@ -51,15 +65,11 @@ export const CreateAppointmentForm = () => {
     getData();
   }, []);
 
-  const handleChange = (e, type) => {
-    let updatedData = {
-      [type]: e.target.value,
-    };
-    setData((data) => ({
-      ...data,
-      ...updatedData,
-    }));
-  };
+  /**
+   * It takes a value and a type, and then updates the data object with the new value.
+   * @param value - The value of the input field
+   * @param type - the name of the field you want to update
+   */
   const handleChangeWithValue = (value, type) => {
     let updatedData = {
       [type]: value,
@@ -69,6 +79,49 @@ export const CreateAppointmentForm = () => {
       ...updatedData,
     }));
   };
+
+  /* A hook that is called when the date changes. It updates the data object with the new date. */
+  useEffect(() => {
+    const handleDateChange = () => {
+      let updatedData = {
+        date: date,
+      };
+      setData((data) => ({
+        ...data,
+        ...updatedData,
+      }));
+    };
+    handleDateChange();
+  }, [date]);
+  useEffect(() => {
+    const handlePatientChange = () => {
+      let updatedData = {
+        patient: patient,
+      };
+      setData((data) => ({
+        ...data,
+        ...updatedData,
+      }));
+    };
+    handlePatientChange();
+  }, [patient]);
+  useEffect(() => {
+    const handleProfessionalChange = () => {
+      let updatedData = {
+        professional: professional,
+      };
+      setData((data) => ({
+        ...data,
+        ...updatedData,
+      }));
+    };
+    handleProfessionalChange();
+  }, [professional]);
+  /**
+   * It sends a POST request to the server with the data from the form, and if the server responds with
+   * a success message, it redirects the user to the page of the appointment that was just created.
+   * </code>
+   */
   const sendData = async () => {
     const response = await axios.post(`/api/appointments/new/`, data);
     let responseData = response.data;
@@ -78,12 +131,23 @@ export const CreateAppointmentForm = () => {
       console.log("Hubo un error");
     }
   };
+  const getProfessionalData = async () => {
+    var name = await document.querySelector("#professionals_list").value;
+    var index = await document.querySelector("#professionals_list")
+      .selectedIndex;
+    var id = await document.querySelector("#professionals_list").options[index]
+      .id;
+    await setProfessional({
+      name: name,
+      id: id,
+    });
+  };
   return (
     <form className="w-96">
       <SearchPatientInput
-        handleChange={handleChange}
         search={search}
         setSearch={setSearch}
+        setPatient={setPatient}
       />
       <div>
         <label className="text-lg text-gray-400">Profesionales</label>
@@ -91,45 +155,57 @@ export const CreateAppointmentForm = () => {
           <select
             className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             name="professionals"
+            id="professionals_list"
+            onChange={() => {
+              getProfessionalData();
+            }}
           >
+            <option selected disabled>
+              Seleccionar
+            </option>
             {professionals.map((value) => (
-              <option key={value._id} value={value._id}>
+              <option key={value._id} id={value._id} value={value.name}>
                 {value.name}
               </option>
             ))}
           </select>
         </div>
       </div>
-        <label className="text-lg text-gray-400">Fecha y hora</label>
+      <label className="text-lg text-gray-400">Fecha y hora</label>
       <div className="flex flex-col justify-center items-center">
         <Calendar
           className="mt-4 rounded-md"
           onChange={onChange}
-          onClick={() => {handleChangeWithValue(date), "date"}}
           value={date}
+          minDate={new Date()}
         />
         {times.map((time) => (
           <SelectTime
             id={`select-time-${time.id}`}
-            key={time.id}
+            key={`select-time-${time.id}`}
             time={time.time}
             onclick={() => {
-              changeSelected(time.id), handleChangeWithValue(parseInt(time.id), "time");
+              changeSelected(time.id), handleChangeWithValue(time.time, "time");
             }}
-            minDate={new Date()}
           />
         ))}
       </div>
       <div className=" pt-2 grid place-items-center">
-        <PrimaryButton
-          onClick={() => {
-            sendData();
-          }}
-          text="Agendar cita"
+        <button
           type="button"
-        />
+          className="cursor-pointer w-72 text-2xl bg-sky-800 h-12 rounded-full text-white text-center p-2"
+          onClick={sendData}
+        >
+          Crear Cita
+        </button>
       </div>
-      <p onClick={() => {console.log(data)}}>Ver datos</p>
+      <p
+        onClick={() => {
+          console.log(data);
+        }}
+      >
+        Ver datos
+      </p>
     </form>
   );
 };

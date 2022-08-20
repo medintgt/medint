@@ -73,7 +73,7 @@ const CreatePatient = () => {
         <label className="text-lg text-gray-400">Primer Nombre</label>
         <div className="pt-2 grid place-items-center">
           <input
-            onChange={(e) => handleChange(e, "first_name")}
+            onChange={(e) => handleChange(e, {patient: {name: "Elmer"}})}
             placeholder="John"
             className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             name="first_name"
