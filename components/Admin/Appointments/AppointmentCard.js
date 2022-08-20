@@ -21,16 +21,16 @@ export const ApointmentCard = (props) => {
     const displayData = (
       <section className="my-4 max-w-md  md:w-96 h-auto p-3 ">
         <Entry
-          name="Patient"
+          name="Paciente"
           value={`${data.patient.name} (${data.patient.phone})`}
         />
-        <Entry name="Physician or Therapist" value={data.professional.name} />
+        <Entry name="Profesional" value={data.professional.name} />
         <div className="flex flex-col justify-center">
           <Calendar className="mt-4 rounded-md" value={new Date(`${data.date}`)} />
           <SelectTime time={data.time} />
         </div>
         <div className="pt-4 grid place-items-center">
-          <SecondaryButton type="submit" text="Edit" />
+          <SecondaryButton type="submit" text="Editar" />
         </div>
       </section>
     );

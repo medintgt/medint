@@ -16,7 +16,6 @@ const Appointments = () => {
             breadcrumb="Escritorio"
             />
             <ShowAppointments />
-            <ShowAllLink text="Show all appointments" link="/appointments/all" />
         </div>
             </LayoutAdmin>
     )
