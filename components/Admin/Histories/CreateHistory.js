@@ -7,7 +7,7 @@ import Select from "@components/Admin/Forms/Elements/Select";
 import SearchPatientInput from "@components/Admin/Patients/SearchPatientInput"
 import { useState } from "react"
 
-const CreateTherapy = () => {
+const CreateHistoy = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState({
     patient: "",
@@ -75,4 +75,4 @@ const CreateTherapy = () => {
   );
 };
 
-export default CreateTherapy;
+export default CreateHistory;
