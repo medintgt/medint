@@ -11,6 +11,7 @@ const CreatePatient = () => {
     middle_name: "",
     last_name: "",
     dpi: "",
+    phone_number: null,
     born_date: "",
     profession: "",
     academic_level: 0,
@@ -49,10 +50,10 @@ const CreatePatient = () => {
   ];
   const academic = [
     { value: "0", text: "Ninguno" },
-    { value: "1", text: "Primaria" },
+    { value: "1", text: "Primario" },
     { value: "2", text: "Básico" },
-    { value: "3", text: "Diversificado" },
-    { value: "4", text: "Superior" },
+    { value: "3", text: "Intermedio (Diversificado)" },
+    { value: "4", text: "Superior (Universidad/Técnico)" },
   ];
   const gender = [
     { value: "0", text: "Masculino" },
@@ -120,6 +121,19 @@ const CreatePatient = () => {
             name="dpi"
             type="number"
             value={data.dpi}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Número de teléfono</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "phone_number")}
+            placeholder="55555555"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="phone_number"
+            type="number"
+            value={data.phone_number}
           ></input>
         </div>
       </div>

@@ -13,7 +13,9 @@ const Patients = () => {
             src="/"
             breadcrumb="Escritorio"
             />
+            <form autoComplete="off">
             <SearchPatient/>
+            </form>
             <ShowPatients />
         </div>
         </LayoutAdmin>
