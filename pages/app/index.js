@@ -19,7 +19,7 @@ const Dashboard = () => {
       <ShowAppointments />
       <Statistics 
       name="Pacientes - Semana"
-      value1="150"
+      value1="2"
       title1="Creados"
       value2="0"
       title2="Historias"
