@@ -8,8 +8,8 @@ import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const LayoutAdmin = ({ children }) => {
-  const { data: session } = useSession();
-  if (session) {
+  const { data: session, status } = useSession()
+  if (status === "authenticated") {
     return (
       <div>
         <NavbarAdmin />
@@ -24,7 +24,13 @@ const LayoutAdmin = ({ children }) => {
         </footer>
       </div>
     );
-  } else if (!session) {
+  } else if (status === "loading") {
+    return (
+      <div className="container mx-auto grid place-items-center h-auto py-24">
+        <h1 className="text-4xl">Cargando...</h1>
+      </div>
+    )
+  } else {
     return (
       <div>
       <Navbar />
@@ -50,12 +56,6 @@ const LayoutAdmin = ({ children }) => {
       <Footer />
     </div>
     )
-  } else {
-    return (
-        <div className="container mx-auto grid place-items-center h-auto py-24">
-          <h1 className="text-4xl">Cargando...</h1>
-        </div>
-      )
     }
 };
 
