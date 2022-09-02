@@ -33,6 +33,7 @@ const SearchPatientInput = ({search, setSearch, setPatient}) => {
             className="capitalize mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             type="text"
             value={search}
+            required
           ></input>
         </div>
       </div>
@@ -49,6 +50,7 @@ const SearchPatientInput = ({search, setSearch, setPatient}) => {
             className="mx-auto capitalize w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
             value={search}
+            required
           ></input>
           <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">
             <p className="text-gray-800">Sin coincidencias.</p>
@@ -68,6 +70,7 @@ const SearchPatientInput = ({search, setSearch, setPatient}) => {
             className="capitalize mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
             value={search}
+            required
           ></input>
           <div className="w-72 max-h-28 overflow-auto px-2 py-1 mx-auto border rounded-b-md border-gray-400 border-t-white">
             {data.map((item) => (

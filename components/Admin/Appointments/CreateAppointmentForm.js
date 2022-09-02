@@ -1,20 +1,25 @@
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { SelectTime } from "./SelectTime";
-import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
 import SearchPatientInput from "@components/Admin/Appointments/SearchPatientInput";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession, signIn, signOut } from "next-auth/react"
 
 const times = [
-  { id: 0, time: "14:00 - 14:30" },
-  { id: 1, time: "14:30 - 15:00" },
-  { id: 2, time: "15:00 - 15:30" },
-  { id: 3, time: "15:30 - 16:00" },
-  { id: 4, time: "16:00 - 16:30" },
-  { id: 5, time: "16:30 - 17:00" },
-  { id: 6, time: "17:00 - 17:30" },
+  { id: 0, time: "6:00 - 7:00" },
+  { id: 1, time: "7:00 - 8:00" },
+  { id: 2, time: "8:00 - 9:00" },
+  { id: 3, time: "9:00 - 10:00" },
+  { id: 4, time: "10:00 - 11:00" },
+  { id: 5, time: "11:00 - 12:00" },
+  { id: 6, time: "12:00 - 13:00" },
+  { id: 7, time: "13:00 - 14:00" },
+  { id: 8, time: "14:00 - 15:00" },
+  { id: 9, time: "15:00 - 16:00" },
+  { id: 10, time: "16:00 - 17:00" },
+  { id: 11, time: "17:00 - 18:00" },
+  { id: 12, time: "19:00 - 20:00" },
 ];
 /**
  * It removes the class "bg-sky-800" and "text-white" from all the elements with the id "select-time-0"
@@ -24,7 +29,7 @@ const times = [
  */
 function changeSelected(id) {
   let i = 0;
-  while (i < 6) {
+  while (i < 13) {
     document.querySelector(`#select-time-${i}`).classList.remove("bg-sky-800");
     document.querySelector(`#select-time-${i}`).classList.remove("text-white");
     i++;
@@ -51,7 +56,7 @@ export const CreateAppointmentForm = () => {
   const [data, setData] = useState({
     patient: patient,
     professional: professional,
-    date: date,
+    date: date.toISOString().slice(0, 10),
     time: "",
     user_create: session.user.email,
   });
@@ -84,7 +89,7 @@ export const CreateAppointmentForm = () => {
   useEffect(() => {
     const handleDateChange = () => {
       let updatedData = {
-        date: date,
+        date: date.toISOString().slice(0, 10),
       };
       setData((data) => ({
         ...data,
@@ -143,7 +148,7 @@ export const CreateAppointmentForm = () => {
     });
   };
   return (
-    <form className="w-96">
+    <form className="w-96" autoComplete="off">
       <SearchPatientInput
         search={search}
         setSearch={setSearch}
@@ -172,14 +177,16 @@ export const CreateAppointmentForm = () => {
         </div>
       </div>
       <label className="text-lg text-gray-400">Fecha y hora</label>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-between items-center w-96">
         <Calendar
           className="mt-4 rounded-md"
           onChange={onChange}
           value={date}
           minDate={new Date()}
         />
+        <div className="grid grid-cols-2 gap-1 justify-between w-full">
         {times.map((time) => (
+          
           <SelectTime
             id={`select-time-${time.id}`}
             key={`select-time-${time.id}`}
@@ -189,6 +196,7 @@ export const CreateAppointmentForm = () => {
             }}
           />
         ))}
+        </div>
       </div>
       <div className=" pt-2 grid place-items-center">
         <button
