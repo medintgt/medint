@@ -5,6 +5,7 @@ import { SelectTime } from "./SelectTime";
 import SecondaryButton from "../Buttons/SecondaryButton";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 export const ApointmentCard = (props) => {
   const [data, setData] = useState(null);
@@ -20,10 +21,14 @@ export const ApointmentCard = (props) => {
   if (data != null) {
     const displayData = (
       <section className="my-4 max-w-md  md:w-96 h-auto p-3 ">
+        <Link href={`/app/patients/${data.patient.id}`}>
+        <a className="cursor-pointer">
         <Entry
           name="Paciente"
           value={`${data.patient.name} (${data.patient.phone})`}
         />
+        </a>
+        </Link>
         <Entry name="Profesional" value={data.professional.name} />
         <div className="flex flex-col justify-center">
           <Calendar className="mt-4 rounded-md" value={new Date(`${data.date}`)} />
