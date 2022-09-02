@@ -19,7 +19,7 @@ const times = [
   { id: 9, time: "15:00 - 16:00" },
   { id: 10, time: "16:00 - 17:00" },
   { id: 11, time: "17:00 - 18:00" },
-  { id: 12, time: "19:00 - 20:00" },
+  { id: 12, time: "18:00 - 19:00" }
 ];
 /**
  * It removes the class "bg-sky-800" and "text-white" from all the elements with the id "select-time-0"
