@@ -17,6 +17,9 @@ module.exports = {
       'gray' : {
         400: '#9ca3af',
         800: '#1f2937'
+      },
+      'red' : {
+        700: '#b91c1c'
       }
   },
     extend: {},

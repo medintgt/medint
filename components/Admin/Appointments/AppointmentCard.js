@@ -36,6 +36,7 @@ export const ApointmentCard = (props) => {
         </div>
         <div className="pt-4 grid place-items-center">
           <SecondaryButton type="submit" text="Editar" />
+          <button type="button" className="cursor-pointer w-72 text-2xl h-12 rounded-full text-red-700 text-center p-2 border-2 border-sky-800">Borrar</button>
         </div>
       </section>
     );
