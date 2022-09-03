@@ -33,7 +33,7 @@ const CreatePatient = () => {
     if (responseData.acknowledged == true) {
       window.location.href = `/app/patients/${responseData.insertedId}`;
     } else {
-      console.log("Hubo un error")
+      window.alert("El DPI ingresado no es valido o ya ha sido registrado.")
     }
   };
   const countries = [
