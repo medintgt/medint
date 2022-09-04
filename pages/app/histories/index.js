@@ -6,7 +6,7 @@ import SearchTab from "@components/Admin/Search/SearchTab";
 import LayoutAdmin from "@components/LayoutAdmin";
 
 
-const Therapies = () => {
+const Histories = () => {
   return (
     <LayoutAdmin>
 
@@ -24,4 +24,4 @@ const Therapies = () => {
   );
 };
 
-export default Therapies;
+export default Histories;

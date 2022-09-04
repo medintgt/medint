@@ -6,26 +6,29 @@ import ImageGroup from "@components/Admin/Show/Elements/ImageGroup";
 import Select from "@components/Admin/Forms/Elements/Select";
 import SearchPatientInput from "@components/Admin/Patients/SearchPatientInput"
 import { useState } from "react"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const CreateHistory = () => {
+  const { data: session } = useSession()
+  const date = new Date();
   const [search, setSearch] = useState("");
   const [data, setData] = useState({
-    patient: "",
-    first_name: "",
-    middle_name: "",
-    last_name: "",
-    dpi: "",
-    born_date: "",
-    profession: "",
-    academic_level: 0,
-    country: "GTM",
-    gender: 0,
+    "patient_name": "",
+    "patient_id": "",
+    "date": "",
+    "reason": "",
+    "subjective": "",
+    "diagnosis": "",
+    "treatment": "",
+    "comments": "",
+    "date_create": date,
+    user_create: session.user.email,
   });
   const sendData = async () => {
-    const response = await axios.post(`/api/patients/new/`, data);
+    const response = await axios.post(`/api/histories/new/`, data);
     let responseData = response.data;
     if (responseData.acknowledged == true) {
-      window.location.href = `/app/patients/${responseData.insertedId}`;
+      window.location.href = `/app/histories/${responseData.insertedId}`;
     } else {
       console.log("Hubo un error")
     }
