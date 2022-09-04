@@ -58,6 +58,7 @@ export const CreateAppointmentForm = () => {
     professional: professional,
     date: date.toISOString().slice(0, 10),
     time: "",
+    time_id: null,
     user_create: session.user.email,
   });
 
@@ -192,7 +193,7 @@ export const CreateAppointmentForm = () => {
             key={`select-time-${time.id}`}
             time={time.time}
             onclick={() => {
-              changeSelected(time.id), handleChangeWithValue(time.time, "time");
+              changeSelected(time.id), handleChangeWithValue(time.time, "time"), handleChangeWithValue(time.id, "time_id");
             }}
           />
         ))}

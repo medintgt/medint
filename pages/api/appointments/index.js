@@ -6,9 +6,6 @@ const cors = Cors({
   origin: true,
 });
 
-var date = new Date();
-const todayDate = date.toISOString().slice(0, 10);
-
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
@@ -24,15 +21,16 @@ function runMiddleware(req, res, fn) {
 export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
 
-  const { filters } = req.body;
+  const body = req.body;
+  var date = body.date;
 
   try {
     const { db } = await connectToDatabase();
     const data = await db
       .collection("appointments")
-      .find({ date: todayDate })
+      .find({ date: date })
       .limit(20)
-      .sort({ date: -1 })
+      .sort({ time_id: 1 })
       .toArray();
     res.status(200).json(data);
   } catch (err) {
