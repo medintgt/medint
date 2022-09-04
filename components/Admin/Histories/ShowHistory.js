@@ -1,21 +1,31 @@
 import Entry from "@components/Admin/Show/Elements/Entry";
 import ShowImageGroup from "@components/Admin/Show/Elements/ImageGroup"
 import SecondaryButton from "@components/Admin/Buttons/SecondaryButton"
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-const ShowTherapy = () => {
-  return (
-    <div
-      className="my-4 max-w-md  md:w-96 h-auto p-3"
-      method="POST"
-      action="/products/edit/123123"
-    >
-      <Entry name="Patient" value="Elmer Chanquin (11208915)" />
-      <Entry name="Reason" value="10 days back pain" />
-      <Entry name="Subjective Data" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in dui eget felis dapibus laoreet. Nam non vulputate turpis. Pellentesque eleifend commodo pharetra." />
-      <Entry name="Objective Data" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in dui eget felis dapibus laoreet. Nam non vulputate turpis. Pellentesque eleifend commodo pharetra." />
-      <Entry name="Diagnosis" value="Lorem, Impsum, Dolor" />
-      <Entry name="Treatment" value="Meds, Therapy, Neural" />
-      <Entry name="Comments" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in dui eget felis dapibus laoreet. Nam non vulputate turpis. Pellentesque eleifend commodo pharetra." />
+export const ShowHistory = (props) => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(
+        `/api/histories/${props.id}`
+      );
+      setData(response.data);
+    };
+    getData();
+  }, [props.id]);
+  if (data != null) {
+    const displayData = (
+    <div className="my-4 max-w-md  md:w-96 h-auto p-3">
+      <Entry name="Nombre del paciente" value={data.patient_name ? data.patient_name : "No se encontro, es necesario actualizar historia"}/>
+      <Entry name="Reason" value={data.date} />
+      <Entry name="Reason" value={data.reason} />
+      <Entry name="Subjective Data" value={data.subjective} />
+      <Entry name="Objective Data" value={data.objective} />
+      <Entry name="Diagnosis" value={data.diagnosis} />
+      <Entry name="Treatment" value={data.treatment} />
+      <Entry name="Comments" value={data.comments} />
       <ShowImageGroup
         image1="/avatar3.png"
         image2="/avatar4.png"
@@ -25,7 +35,13 @@ const ShowTherapy = () => {
         <SecondaryButton type="submit" text="Edit" />
       </div>
     </div>
-  );
-};
-
-export default ShowTherapy;
+    );
+    return displayData;
+} else {
+  return (
+    <section className="my-4 max-w-md md:w-96 bg-white shadow-2xl p-3 rounded-md">
+      <h2 className="text-xl text-center">Los datos estan cargando...</h2>
+    </section>
+    )
+  }
+}

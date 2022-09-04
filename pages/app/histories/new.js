@@ -2,7 +2,7 @@ import Title from "@components/Admin/Title"
 import CreateHistory from "@components/Admin/Histories/CreateHistory";
 import LayoutAdmin from "@components/LayoutAdmin";
 
-const NewTherapie = () => {
+const NewHistory = () => {
     return (
         <LayoutAdmin>
 
@@ -13,5 +13,5 @@ const NewTherapie = () => {
         </LayoutAdmin>
     );
 };
-export default NewTherapie
+export default NewHistory
 
