@@ -38,8 +38,50 @@ function changeSelected(id) {
   document.querySelector(`#select-time-${id}`).classList.add("bg-sky-800");
   document.querySelector(`#select-time-${id}`).classList.add("text-white");
 }
+function NewPatient({patient, setPatient}) {
+  const handleChangeWithValue = (value, type) => {
+    let updatedPatient = {
+      [type]: value,
+    };
+    setPatient((patient) => ({
+      ...patient,
+      ...updatedPatient,
+    }));
+  };
+  return (<div>
+    <div>
+        <label className="text-lg text-gray-400">Nombre</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            name="search"
+            onChange={(e) => {handleChangeWithValue(e.target.value, "name")}}
+            placeholder="Jhon Doe"
+            className="capitalize mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            type="text"
+            value={patient.name}
+            required
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Teléfono</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            name="search"
+            onChange={(e) => {handleChangeWithValue(e.target.value, "phone")}}
+            placeholder="55555555"
+            className="capitalize mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            type="text"
+            value={patient.phone}
+            required
+          ></input>
+        </div>
+      </div>
+  </div>)
+}
 
 export const CreateAppointmentForm = () => {
+  let [newPatient, setNewPatient] = useState(false)
   const { data: session } = useSession()
   let [date, onChange] = useState(new Date());
   const [search, setSearch] = useState("");
@@ -150,11 +192,8 @@ export const CreateAppointmentForm = () => {
   };
   return (
     <form className="w-96" autoComplete="off">
-      <SearchPatientInput
-        search={search}
-        setSearch={setSearch}
-        setPatient={setPatient}
-      />
+      {newPatient ? <span className="text-lg">¿No es un paciente nuevo? <a className="cursor-pointer text-sky-800" onClick={()=>{setNewPatient(false)}}>Buscar paciente</a></span> : <span className="text-lg">¿Es un paciente nuevo? <a className="cursor-pointer text-sky-800" onClick={()=>{setNewPatient(true)}}>Ingreso manual</a></span> }
+      {newPatient ? <NewPatient data={data} setData={setData} patient={patient} setPatient={setPatient}/> : <SearchPatientInput search={search} setSearch={setSearch} setPatient={setPatient} />}
       <div>
         <label className="text-lg text-gray-400">Profesionales</label>
         <div className=" pt-2 grid place-items-center">
@@ -166,7 +205,7 @@ export const CreateAppointmentForm = () => {
               getProfessionalData();
             }}
           >
-            <option selected disabled>
+            <option defaultValue>
               Seleccionar
             </option>
             {professionals.map((value) => (
@@ -208,6 +247,7 @@ export const CreateAppointmentForm = () => {
           Crear Cita
         </button>
       </div>
+      <p onClick={()=>{console.log(data)}}>Ver datos</p>
     </form>
   );
 };
