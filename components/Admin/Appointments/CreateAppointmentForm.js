@@ -247,7 +247,6 @@ export const CreateAppointmentForm = () => {
           Crear Cita
         </button>
       </div>
-      <p onClick={()=>{console.log(data)}}>Ver datos</p>
     </form>
   );
 };

@@ -6,6 +6,7 @@ if (req.method == "POST") {
     const post = req.body;
     const insertThis = {
         time: post.time,
+        time_id: post.time_id,
         last_modified: todayDate.toISOString(),
         user_create: post.user_create,
         date: post.date,
