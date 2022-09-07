@@ -45,7 +45,11 @@ export const ApointmentCard = (props) => {
           <SelectTime time={data.time} />
         </div>
         <div className="pt-4 grid place-items-center">
-          <SecondaryButton type="submit" text="Editar" />
+        <Link href={`/app/appointments/edit/${props.id}`}>
+        <a className="cursor-pointer">
+        <button type="button" className="cursor-pointer w-72 text-2xl h-12 rounded-full text-sky-800 text-center p-2 border-2 border-sky-800">Editar</button>
+        </a>
+        </Link>
           </div>
         <div className="pt-4 grid place-items-center">
           <button type="button" onClick={deleteAppointment} className="cursor-pointer w-72 text-2xl h-12 rounded-full text-red-700 text-center p-2 border-2 border-red-700">Borrar</button>
