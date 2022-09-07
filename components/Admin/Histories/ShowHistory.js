@@ -23,6 +23,7 @@ export const ShowHistory = (props) => {
       <Entry name="Reason" value={data.reason} />
       <Entry name="Subjective Data" value={data.subjective} />
       <Entry name="Objective Data" value={data.objective} />
+      <Entry name="Objective Data" value={data.new_data} />
       <Entry name="Diagnosis" value={data.diagnosis} />
       <Entry name="Treatment" value={data.treatment} />
       <Entry name="Comments" value={data.comments} />

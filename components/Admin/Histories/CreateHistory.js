@@ -21,6 +21,7 @@ const CreateHistory = () => {
     reason: "",
     subjective: "",
     objective: "",
+    new_data: "",
     diagnosis: "",
     treatment: "",
     comments: "",
@@ -119,6 +120,20 @@ const CreateHistory = () => {
         <div className=" pt-2 grid place-items-center">
           <textarea
             name="objective"
+            id=""
+            cols="30"
+            rows="3"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            placeholder="Lorem Impsum Dolor Ammet Sit"
+            onChange={(e) => {handleChange(e.target.value, e.target.name)}}
+          ></textarea>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Nuevos Datos</label>
+        <div className=" pt-2 grid place-items-center">
+          <textarea
+            name="new_data"
             id=""
             cols="30"
             rows="3"

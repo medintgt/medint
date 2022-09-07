@@ -11,6 +11,7 @@ if (req.method == "POST") {
       reason: post.reason,
       subjective: post.subjective,
       objective: post.objective,
+      new_data: post.new_data,
       diagnosis: post.diagnosis,
       treatment: post.treatment,
       comments: post.comments,
