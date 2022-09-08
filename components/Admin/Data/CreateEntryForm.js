@@ -106,7 +106,7 @@ const CreateEntryForm = () => {
     }));
   };
   return (
-    <form>
+    <form autoComplete="off">
       <SearchPatientInput
         search={search}
         setSearch={setSearch}
@@ -195,7 +195,7 @@ const DataType = ({state, data, handleChangeWithValue}) => {
       </div>
     </div>)
   } else if (state == "3") {
-    (<div>
+    return (<div>
       <label className="text-lg text-gray-400">Frecuencia cardíaca</label>
       <div className="pt-2 grid place-items-center">
         <input
@@ -210,7 +210,7 @@ const DataType = ({state, data, handleChangeWithValue}) => {
       </div>
     </div>)
   } else if (state == "4") {
-    (<div>
+    return (<div>
       <label className="text-lg text-gray-400">Frecuencia respiratoria</label>
       <div className="pt-2 grid place-items-center">
         <input
@@ -225,13 +225,13 @@ const DataType = ({state, data, handleChangeWithValue}) => {
       </div>
     </div>)
   } else if (state == "5") {
-    (<div>
+    return (<div>
       <label className="text-lg text-gray-400">Temperatura</label>
       <div className="pt-2 grid place-items-center">
         <input
           key='0'
           onChange={(e) => {handleChangeWithValue(e.target.value, e.target.name)}}
-          placeholder="150"
+          placeholder="36.5"
           className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
           name="value1"
           type="number"
@@ -240,7 +240,7 @@ const DataType = ({state, data, handleChangeWithValue}) => {
       </div>
     </div>)
   } else if (state == "6") {
-    (<div>
+    return (<div>
       <label className="text-lg text-gray-400">Pulso</label>
       <div className="pt-2 grid place-items-center">
         <input
@@ -255,7 +255,7 @@ const DataType = ({state, data, handleChangeWithValue}) => {
       </div>
     </div>)
   } else if (state == "7") {
-    (<div>
+    return (<div>
       <label className="text-lg text-gray-400">Saturación de oxígeno</label>
       <div className="pt-2 grid place-items-center">
         <input
