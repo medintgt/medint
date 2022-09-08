@@ -9,7 +9,7 @@ export const ShowHistory = (props) => {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(
-        `/api/histories/${props.id}`
+        `/api/histories/history/${props.id}`
       );
       setData(response.data);
     };
