@@ -10,7 +10,7 @@ const items = [
   { title: "Nueva Historia", link: "/app/histories/new", icon: "stethoscope" },
   { title: "Nueva Venta", link: "/app/sales/new", icon: "dollar" },
   { title: "Nuevo Paciente", link: "/app/patients/new", icon: "user-add" },
-  { title: "Nuevo Dato", link: "/app/data/new-entry", icon: "layers" },
+  { title: "Nuevo Dato", link: "/app/data/new", icon: "layers" },
   { title: "Nuevo Movimiento", link: "/app/movements/new", icon: "pharmacy" },
   { title: "Nuevo Producto", link: "/app/products/new", icon: "shopping-bag-add" },
   { title: "Nueva Prescripción", link: "/app/prescriptions/new", icon: "receipt" },
