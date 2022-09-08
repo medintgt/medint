@@ -1,12 +1,40 @@
 import { connectToDatabase } from "@middleware/database";
-import { ObjectId } from "mongodb";
+import Cors from "cors";
 
-export default async function handler(req, res){
-    const {id} = req.query;
+const whiteList = ['https://admin.medint.gt', 'https://medint.gt'];
+const cors = Cors({
+    methods: ["POST", "GET", "HEAD"],
+    origin: true,
+});
 
-    const {db} = await connectToDatabase();
+function runMiddleware(req, res, fn) {
+    return new Promise((resolve, reject) => {
+        fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result);
+    }
     
-    const data = await db.collection("histories").findOne({_id: ObjectId(id)});
+    return resolve(result);
+});
+});
+}
 
-    res.json(data);
+export default async function handler(req, res) {
+    await runMiddleware(req, res, cors);
+    const {id} = req.query;
+    
+  const { filters } = req.body;
+  
+  try {
+      const { db } = await connectToDatabase();
+      const data = await db
+      .collection("histories")
+      .find({patient_id: id})
+      .sort({date_create: -1})
+      .limit(/* filters.limit */ 5)
+      .toArray();
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to load data" });
+  }
 }
