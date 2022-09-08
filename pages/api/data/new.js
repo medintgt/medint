@@ -9,7 +9,8 @@ if (req.method == "POST") {
         patient: post.patient,
         type: post.type,
         value1: post.value1,
-        value2: post.value2
+        value2: post.value2,
+        user_create: post.user_create
     }
 
     async function insertData() {

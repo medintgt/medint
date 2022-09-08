@@ -4,8 +4,10 @@ import "react-calendar/dist/Calendar.css";
 import SearchPatientInput from "@components/Admin/Data/SearchPatientInput";
 import { useState, useEffect } from "react";
 import axios from "axios"
+import { useSession} from "next-auth/react"
 
 const CreateEntryForm = () => {
+  const { data: session } = useSession()
   const [search, setSearch] = useState("");
   let [date, onChange] = useState(new Date());
   const options = [
@@ -28,7 +30,8 @@ const CreateEntryForm = () => {
     patient: patient,
     type: 0,
     value1: null,
-    value2: null
+    value2: null,
+    user_create: session.user.email,
   });
 
   const sendData = async () => {
