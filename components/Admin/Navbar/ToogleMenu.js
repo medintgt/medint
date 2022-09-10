@@ -24,6 +24,7 @@ const ToogleMenu = () => {
     { id: "11", title: "Prescripciones", link: "/app/prescriptions" },
     { id: "12", title: "Ordenes", link: "/app/orders" },
     { id: "13", title: "Ventas", link: "/app/sales" },
+    { id: "14", title: "Finanzas", link: "/app/finances" },
   ];
 
   const itemList = items.map((item) => (
