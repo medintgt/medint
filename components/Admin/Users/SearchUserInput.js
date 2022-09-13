@@ -3,6 +3,7 @@ import axios from "axios";
 
 const SearchUserInput = ({user, setUser, handleChange}) => {
   const [data, setData] = useState(null);
+  const [search, setSearch] = useState("");
 
   async function getData(event) {
     const response = await axios.post("/api/users/search", {
@@ -13,7 +14,6 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
 
   function setResult(result) {
     setUser(result);
-    setData[null];
   }
   const valueChange = (event) => {
     setUser(event.target.value);
@@ -21,8 +21,8 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
       getData(event);
     }
   };
-  const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-  if (data == null || user == "" || user == validEmail) {
+
+  if (data == null || user == "" || search == user) {
     return (
       <div>
         <label className="text-lg text-gray-400">Usuario</label>
@@ -76,7 +76,7 @@ const SearchUserInput = ({user, setUser, handleChange}) => {
                 key={item._id}
                 className="cursor-pointer text-gray-800 hover:text-sky-800"
                 onClick={() => {
-                  setResult(item.email);
+                  setResult(item.email), setSearch(item.email)
                 }}
               >
                 {item.email}
