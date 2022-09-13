@@ -22,18 +22,22 @@ export const ShowAppointments = () => {
             <span className="cursor-pointer text-sky-800">{item.time}</span>
           </a>
         </Link>
-        <span className="">{item.patient.name}</span>
+        <Link href={`/app/patients/${item.patient.id}`}>
+          <a>
+        <span className="cursor-pointer text-sky-800">{item.patient.name}</span>
+        </a>
+        </Link>
       </li>
     ));
     return (
-      <section className="my-4 max-w-md md:w-96 w-80 bg-white shadow-2xl p-3 rounded-md">
+      <section className="text-lg my-4 max-w-md md:w-96 w-80 bg-white shadow-2xl p-3 rounded-md">
         <h2 className="text-xl">Citas</h2>
          <Calendar
           className="mt-4 rounded-md"
           onChange={onChange}
           value={date}
         />
-        {dataList}
+        { data.length > 0 ?  dataList : "Aún no se han agendado citas para este día." }  
       </section>
     );
   } else {
