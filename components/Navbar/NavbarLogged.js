@@ -29,9 +29,6 @@ const NavbarLogged = () => {
             <Link href="/articles">
               <a className="m-4 hover:text-main">Artículos</a>
             </Link>
-            <Link href="/app">
-              <a className="m-4 hover:text-main">Escritorio</a>
-            </Link>
           </div>
           <Link href="/app/checkout">
             <a>
@@ -42,7 +39,7 @@ const NavbarLogged = () => {
             </a>
           </Link>
           <span className="text-3xl w-10 ml-2">
-            <Link href="/app/profile">
+            <Link href="/app">
               <a>
                 <Image
                   className="rounded-full cursor-pointer"

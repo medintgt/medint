@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="hidden md:inline">
       <Image
         className="cursor-pointer object-contain"
-        src={heroPic}
+        src="https://storage.googleapis.com/medint/public/home.jpg"
         alt="Hero"
         width="600"
         height="600"
