@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const SearchAccount = ({search, setSearch, setPatient, text}) => {
+const SearchAccount = ({search, setSearch, setAccount, text, account}) => {
   const [data, setData] = useState(null);
-
   async function getData(event) {
     const response = await axios.post("/api/accounts/search", {
       value: event.target.value,
@@ -19,7 +18,7 @@ const SearchAccount = ({search, setSearch, setPatient, text}) => {
     setSearch(event.target.value);
       getData(event);
   };
-  if (data == null || search == "") {
+  if (data == null || search == "" || search == account.name) {
     return (
       <div>
         <label className="text-lg text-gray-400">{text}</label>
@@ -27,7 +26,7 @@ const SearchAccount = ({search, setSearch, setPatient, text}) => {
           <input
             name="search"
             onChange={(e) => {valueChange(e)}}
-            placeholder="Proveedor 1"
+            placeholder="Proveedor de Medicamentos"
             className="capitalize mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             type="text"
             value={search}
@@ -44,7 +43,7 @@ const SearchAccount = ({search, setSearch, setPatient, text}) => {
           <input
             name="search"
             onChange={(e) => {valueChange(e)}}
-            placeholder="Proveedor 1"
+            placeholder="Proveedor de Medicamentos"
             className="mx-auto capitalize w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
             value={search}
@@ -64,7 +63,7 @@ const SearchAccount = ({search, setSearch, setPatient, text}) => {
           <input
             name="search"
             onChange={(e) => {valueChange(e)}}
-            placeholder="Proveedor 1"
+            placeholder="Proveedor de Medicamentos"
             className="capitalize mx-auto w-72 py-1 px-2 border rounded-t-md border-gray-400"
             type="text"
             value={search}
@@ -76,7 +75,7 @@ const SearchAccount = ({search, setSearch, setPatient, text}) => {
                 key={item._id}
                 className="cursor-pointer text-gray-800 hover:text-sky-800"
                 onClick={() => {
-                  setResult(item.first_name + " " + item.middle_name + " " + item.last_name), setPatient({name: item.first_name + " " + item.last_name.split(" ")[0], id: item._id, phone: item.phone_number})
+                  setResult(item.name), setAccount({name: item.name, id: item.id})
                 }}
               >
                 {item.name}
