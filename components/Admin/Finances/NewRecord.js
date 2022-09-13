@@ -89,14 +89,16 @@ const NewRecordForm = () => {
       <SearchAccount
         search={search}
         setSearch={setSearch}
-        setPatient={setAccount}
+        setAccount={setAccount}
         text={"Cuenta Debe"}
+        account={account}
       />
       <SearchAccount
         search={search2}
         setSearch={setSearch2}
-        setPatient={setAccount2}
+        setAccount={setAccount2}
         text={"Cuenta Haber"}
+        account={account2}
       />
       <div>
         <label className="text-lg text-gray-400">Fecha</label>
