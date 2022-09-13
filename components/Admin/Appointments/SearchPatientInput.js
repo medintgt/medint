@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const SearchPatientInput = ({search, setSearch, setPatient}) => {
+const SearchPatientInput = ({search, setSearch, setPatient, patient}) => {
   const [data, setData] = useState(null);
 
   async function getData(event) {
@@ -21,7 +21,7 @@ const SearchPatientInput = ({search, setSearch, setPatient}) => {
       getData(event);
     }
   };
-  if (data == null || search == "") {
+  if (data == null || search == "" || search == patient.search) {
     return (
       <div>
         <label className="text-lg text-gray-400">Paciente</label>
@@ -78,7 +78,7 @@ const SearchPatientInput = ({search, setSearch, setPatient}) => {
                 key={item._id}
                 className="cursor-pointer text-gray-800 hover:text-sky-800"
                 onClick={() => {
-                  setResult(item.first_name + " " + item.middle_name + " " + item.last_name), setPatient({name: item.first_name + " " + item.last_name.split(" ")[0], id: item._id, phone: item.phone_number})
+                  setResult(item.first_name + " " + item.middle_name + " " + item.last_name), setPatient({name: item.first_name + " " + item.last_name.split(" ")[0], id: item._id, phone: item.phone_number, search: item.first_name + " " + item.middle_name + " " + item.last_name})
                 }}
               >
                 {item.first_name + " " + item.middle_name + " " + item.last_name}
