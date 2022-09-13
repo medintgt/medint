@@ -24,7 +24,8 @@ if (req.method == "POST") {
         "marital_status": post.marital_status,
         "profession": post.profession,
         "retired": "",
-        "creation_date" : todayDate.toISOString()
+        "creation_date" : todayDate.toISOString(),
+        "name" : post.first_name + " " + post.middle_name + " " + post.last_name
         
     }
     async function insertData() {

@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     const { db } = await connectToDatabase();
     const data = await db
       .collection("patients")
-      .find({ $or: [{_id: pattern},  { first_name: pattern}, {middle_name: pattern}, {last_name: pattern}] })
+      .find({ $or: [{name: pattern}, { first_name: pattern}, {middle_name: pattern}, {last_name: pattern}] })
       .limit(10)
       .toArray();
     res.status(200).json(data);
