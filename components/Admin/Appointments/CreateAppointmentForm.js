@@ -193,7 +193,7 @@ export const CreateAppointmentForm = () => {
   return (
     <form className="w-96" autoComplete="off">
       {newPatient ? <span className="text-lg">¿No es un paciente nuevo? <a className="cursor-pointer text-sky-800" onClick={()=>{setNewPatient(false)}}>Buscar paciente</a></span> : <span className="text-lg">¿Es un paciente nuevo? <a className="cursor-pointer text-sky-800" onClick={()=>{setNewPatient(true)}}>Ingreso manual</a></span> }
-      {newPatient ? <NewPatient data={data} setData={setData} patient={patient} setPatient={setPatient}/> : <SearchPatientInput search={search} setSearch={setSearch} setPatient={setPatient} />}
+      {newPatient ? <NewPatient data={data} setData={setData} patient={patient} setPatient={setPatient}/> : <SearchPatientInput search={search} setSearch={setSearch} setPatient={setPatient} patient={patient} />}
       <div>
         <label className="text-lg text-gray-400">Profesionales</label>
         <div className=" pt-2 grid place-items-center">
