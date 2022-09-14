@@ -1,24 +1,39 @@
 import React from "react";
-import Input from "@components/Admin/Forms/Elements/Input";
-import PrimaryButton from "@components/Admin/Buttons/PrimaryButton";
-import Select from "@components/Admin/Forms/Elements/Select";
 import { useState, useEffect } from "react";
+import SearchUserInput from "@components/Admin/Users/SearchUserInput";
 import axios from "axios";
 
 const EditPatient = (props) => {
-  const countries = {
-    GTM: "Guatemala" ,
-    SLV: "El Salvador" ,
-    MEX: "Mexico" ,
-    HND: "Honduras" ,
-    USA: "Estados Unidos",
-    PAN: "Panama" ,
-    CRI: "Costa Rica" ,
-    NIC: "Nicaragua" ,
-    BLZ: "Belize" ,
-    "no-specified": "Otro" ,
+  const [data, setData] = useState(null);
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(`/api/patients/patient/${props.id}`);
+      setData(response.data);
+      setUser(response.data.email)
+    };
+    getData();
+  }, [props.id]);
+  const handleChange = (e, type) => {
+  let updatedData = {
+      [type] : e.target.value,
   };
-  const sendCountries = [
+  setData((data) => ({
+    ...data,
+    ...updatedData,
+  }));
+}
+  const sendData = async () => {
+    delete data._id
+    const response = await axios.post(`/api/patients/update/${props.id}`, data);
+    let responseData = response.data;
+    if (responseData.acknowledged == true) {
+      window.location.href = `/app/patients/${props.id}`;
+    } else {
+      window.alert("El DPI ingresado no es valido o ya ha sido registrado.")
+    }
+  };
+  const countries = [
     { value: "GTM", text: "Guatemala" },
     { value: "SLV", text: "El Salvador" },
     { value: "MEX", text: "Mexico" },
@@ -30,68 +45,182 @@ const EditPatient = (props) => {
     { value: "BLZ", text: "Belize" },
     { value: "no-specified", text: "Otro" },
   ];
-
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get(`/api/patients/patient/${props.id}`);
-      setData(response.data);
-    };
-    getData();
-  }, [props.id]);
-  const [user, setUser] = useState("");
+  const academic = [
+    { value: "0", text: "Ninguno" },
+    { value: "1", text: "Primario" },
+    { value: "2", text: "Básico" },
+    { value: "3", text: "Intermedio (Diversificado)" },
+    { value: "4", text: "Superior (Universidad/Técnico)" },
+  ];
+  const gender = [
+    { value: "0", text: "Masculino" },
+    { value: "1", text: "Femenino" },
+  ];
+  let date = new Date();
   if (data != null) {
-   if (data.gender == 0){
-      var gender = [<option key="0" value="0" selected>Masculino</option>,<option key="1" value="1">Femenino</option>]
-    } else {
-      var gender = [<option key="0" value="0">Masculino</option>,<option key="1" value="1" selected>Femenino</option>]
-    }
   return (
-    <form className="my-4 max-w-md  md:w-96 h-auto p-3" action="">
-      <Input
-        label="Usuario"
-        placeholder="Seleccionar Usuario (if applicable)"
-        type="text"
-        value={data.user_id}
+    <form
+      className="my-4 max-w-md  md:w-96 h-auto p-3"
+      method="POST"
+    >
+      <SearchUserInput
+        handleChange={handleChange}
+        user={user}
+        setUser={setUser}
       />
-      <Input label="Primer Nombre" placeholder="John" type="text" value={data.first_name} />
-      <Input
-        label="Segundo Nombre"
-        placeholder="Richard"
-        type="text"
-        value={data.middle_name}
-      />
-      <Input label="Apellidos" placeholder="Doe" type="text" value={data.last_name} />
-      <Input
-        label="DPI/CUI"
-        placeholder="1234567890987"
-        type="number"
-        value={data.dpi}
-      />
-      <Input label="Fecha de Nacimiento" type="date" value={data.born_date} />
-      <Select label="País" options={sendCountries} value={countries[data.country]} />
       <div>
+        <label className="text-lg text-gray-400">Primer Nombre</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "first_name")}
+            placeholder="John"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="first_name"
+            type="text"
+            value={data.first_name}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Segundo Nombre</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "middle_name")}
+            placeholder="Richard"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="middle_name"
+            type="text"
+            value={data.middle_name}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Apellidos</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "last_name")}
+            placeholder="Doe"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="last_name"
+            type="text"
+            value={data.last_name}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">DPI/CUI</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "dpi")}
+            placeholder="3030292998987"
+            min="1000000000000"
+            max="9999999999999"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="dpi"
+            type="number"
+            value={data.dpi}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Número de teléfono</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "phone_number")}
+            placeholder="55555555"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="phone_number"
+            type="number"
+            value={data.phone_number}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Fecha de nacimiento</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "born_date")}
+            placeholder="Doe"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="born_date"
+            type="date"
+            max={date.toISOString().split('T')[0]}
+            value={data.born_date}
+          ></input>
+        </div>
+      </div>
+      <div>
+        <label className="text-lg text-gray-400">Profesión</label>
+        <div className="pt-2 grid place-items-center">
+          <input
+            onChange={(e) => handleChange(e, "profession")}
+            placeholder="Profesión"
+            className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+            name="profession"
+            type="text"
+            value={data.profession}
+          ></input>
+        </div>
+      </div>
+      <div>
+      <label className="text-lg text-gray-400">Nivel académico</label>
+      <div className=" pt-2 grid place-items-center">
+        <select
+          className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+          name="academic_level"
+          onChange={(e) => handleChange(e, "academic_level")}
+        >
+            {
+          academic.map(option => (
+            <option key={option.value} value={option.value}>{option.text}</option>
+          ))
+        }
+        </select>
+      </div>
+    </div>
+    <div>
+      <label className="text-lg text-gray-400">País</label>
+      <div className=" pt-2 grid place-items-center">
+        <select
+          className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
+          name="country"
+          onChange={(e) => handleChange(e, "country")}
+        >
+            {
+          countries.map(option => (
+            <option key={option.value} value={option.value}>{option.text}</option>
+          ))
+        }
+        </select>
+      </div>
+    </div>
+    <div>
       <label className="text-lg text-gray-400">Genero</label>
       <div className=" pt-2 grid place-items-center">
         <select
           className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
-          name=""
-          id=""
+          name="gender"
+          onChange={(e) => handleChange(e, "gender")}
         >
-          {gender}
+            {
+          gender.map(option => (
+            <option key={option.value} value={option.value}>{option.text}</option>
+          ))
+        }
         </select>
       </div>
     </div>
       <div className="pt-4 grid place-items-center">
-        <PrimaryButton text="Actualizar Paciente" />
+        <button type="button" className="cursor-pointer w-72 text-2xl bg-sky-800 h-12 rounded-full text-white text-center p-2" onClick={sendData}>Editar Paciente</button>
       </div>
     </form>
-  );} else {
-    return (
-        <div className="container mx-auto grid justify-center">
-            <h1 className="text-center text-lg">Contenido esta cargando...</h1>
-        </div>
-        )
+  )
+} else {
+  return (
+      <div className="container mx-auto grid justify-center">
+          <h1 className="text-center text-lg">Contenido esta cargando...</h1>
+      </div>
+      )
 }
 };
 
