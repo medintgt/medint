@@ -18,7 +18,7 @@ const LayoutAdmin = ({ children }) => {
         <footer className="container mx-auto flex justify-end">
           <Link href="/app/changelog">
             <a>
-              <p className="text-sky-800">Version 2.0.0</p>
+              <p className="text-sky-800">Version 2.0.1</p>
             </a>
           </Link>
         </footer>
