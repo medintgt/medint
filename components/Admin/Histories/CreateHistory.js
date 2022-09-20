@@ -76,6 +76,7 @@ const CreateHistory = () => {
         search={search}
         setSearch={setSearch}
         setPatient={setPatient}
+        patient={patient}
       />
       <div>
       <label className="text-lg text-gray-400">Fecha</label>
