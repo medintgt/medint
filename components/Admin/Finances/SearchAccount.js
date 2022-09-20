@@ -75,7 +75,7 @@ const SearchAccount = ({search, setSearch, setAccount, text, account}) => {
                 key={item._id}
                 className="cursor-pointer text-gray-800 hover:text-sky-800"
                 onClick={() => {
-                  setResult(item.name), setAccount({name: item.name, id: item.id})
+                  setResult(item.name), setAccount({name: item.name, id: item._id})
                 }}
               >
                 {item.name}
