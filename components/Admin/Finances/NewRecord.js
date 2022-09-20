@@ -18,23 +18,20 @@ const NewRecordForm = () => {
     id: "",
   });
   const [data, setData] = useState({
-    patient_name: account.id,
-    patient_id: account2.id,
+    account: account,
+    account2: account2,
     date: date,
-    reason: "",
-    subjective: "",
-    objective: "",
-    new_data: "",
-    diagnosis: "",
-    treatment: "",
-    comments: "",
+    amount: null,
+    description: "",
+    reference: "",
+    proof: "",
     user_create: session.user.email,
   });
   const sendData = async () => {
-    const response = await axios.post(`/api/histories/new/`, data);
+    const response = await axios.post(`/api/finances/record/new/`, data);
     let responseData = response.data;
     if (responseData.acknowledged == true) {
-      window.location.href = `/app/histories/${responseData.insertedId}`;
+      window.location.href = `/app/finances/ledger/record/${responseData.insertedId}`;
     } else {
       console.log("Hubo un error");
     }
@@ -51,7 +48,7 @@ const NewRecordForm = () => {
   useEffect(() => {
     const handleAccountChange = () => {
       let updatedData = {
-        account: account.id,
+        account: account,
       };
       setData((data) => ({
         ...data,
@@ -63,7 +60,7 @@ const NewRecordForm = () => {
   useEffect(() => {
     const handleAccount2Change = () => {
       let updatedData = {
-        account: account2.id,
+        account2: account2,
       };
       setData((data) => ({
         ...data,
@@ -119,12 +116,12 @@ const NewRecordForm = () => {
         <div className="pt-2 grid place-items-center">
           <input
             onChange={(e) => {
-              handleChange(e.target.value, e.target.name);
+              handleChange(parseInt(e.target.value), e.target.name);
             }}
             placeholder="995"
             className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
-            name="reason"
-            type="text"
+            name="amount"
+            type="number"
           ></input>
         </div>
       </div>
@@ -132,14 +129,14 @@ const NewRecordForm = () => {
         <label className="text-lg text-gray-400">Descripción</label>
         <div className=" pt-2 grid place-items-center">
           <textarea
-            name="subjective"
+            name="description"
             id=""
             cols="30"
             rows="3"
             className="mx-auto w-72 py-1 px-2 border rounded-md border-gray-400"
             placeholder="Lorem Impsum Dolor Ammet Sit"
             onChange={(e) => {
-              handleChange(e.target.value, "subjective");
+              handleChange(e.target.value, e.target.name);
             }}
           ></textarea>
         </div>
@@ -186,8 +183,9 @@ const NewRecordForm = () => {
           type="button"
           className="cursor-pointer w-72 text-2xl bg-sky-800 h-12 rounded-full text-white text-center p-2"
         >
-          Guardar Historia
+          Crear Registro
         </button>
+        <p onClick={()=>{console.log(data)}}>Mostrar datos en consola</p>
       </div>
     </form>
   );
