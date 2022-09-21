@@ -32,8 +32,8 @@ const Navbar = () => {
             <Link href="/therapies">
               <a className="m-4 hover:text-main">Terapias</a>
             </Link>
-            <Link href="/education">
-              <a className="m-4 hover:text-main">Educación</a>
+            <Link href="/academy">
+              <a className="m-4 hover:text-main">Academia</a>
             </Link>
             <Link href="/pharmacy">
               <a className="m-4 hover:text-main">Farmacia</a>
