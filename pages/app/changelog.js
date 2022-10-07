@@ -5,8 +5,13 @@ const ChangeLog = () => {
   return (
     <LayoutAdmin>
 
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto grid justify-center">
+      <div className="w-96">
       <h3 className="text-3xl">Changelog</h3>
+      <strong>V.2.1.0</strong>
+      <p>- Nueva vista del menu para pantalla larga</p>
+      <p>- Se cambio posición de pie de página al menu desplegable o lateral.</p>
+      <br/>
       <strong>V.2.0.2</strong>
       <p>- Esconder resultados al seleccionar paciente en historia clinica</p>
       <br/>
@@ -18,6 +23,7 @@ const ChangeLog = () => {
       <p>- Modulo de pacientes habilitado.</p>
       <p>- Modulo de Historias habilitado.</p>
       <p>- Modulo de Registros habilitado.</p>
+      </div>
     </div>
     </LayoutAdmin>
   );

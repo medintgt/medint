@@ -1,6 +1,5 @@
 import React from "react";
 import NavbarAdmin from "@components/Admin/Navbar/Navbar";
-import Link from "next/link";
 import QuickActions from "@components/Admin/Buttons/QuickActions";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
@@ -15,13 +14,6 @@ const LayoutAdmin = ({ children }) => {
         <NavbarAdmin />
         {children}
         <QuickActions />
-        <footer className="container mx-auto flex justify-end">
-          <Link href="/app/changelog">
-            <a>
-              <p className="text-sky-800">Version 2.0.1</p>
-            </a>
-          </Link>
-        </footer>
       </div>
     );
   } else if (status === "loading") {

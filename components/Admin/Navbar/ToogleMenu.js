@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "./Item";
+import Link from "next/link";
 
 const ToogleMenu = () => {
   const [state, setState] = React.useState("hidden");
@@ -37,28 +38,36 @@ const ToogleMenu = () => {
   ));
   return [
     <div
-    key="toogle-menu"
+      key="toogle-menu"
       onClick={toogleMenu}
       className="grid place-items-center cursor-pointer"
     >
-      <i className="text-2xl fi fi-rr-menu-burger"></i>
-      <div className={`${state} relative`}>
-        <div className="z-10 fixed top-0 p-3 w-72 h-auto pl-8 pb-10 shadow-2x1 list-none flex flex-col rounded-md bg-white shadow-2xl">
+      <i className="text-2xl fi fi-rr-menu-burger lg:hidden"></i>
+      <div className={`${state}  lg:flex relative`}>
+        <div className="z-10 fixed top-0 py-3 w-72 h-full pl-8 pb-10 shadow-2x1 list-none flex flex-col bg-white shadow-2xl lg:shadow-md border-l-2 border-sky-800">
           <a
-            className="w-full my-2 cursor-pointer text-left"
+            className="w-full my-2 cursor-pointer lg:hidden justify-end"
             onClick={toogleMenu}
           >
-            <i className="text -3xl fi-rr-cross"></i>
+            <i className="text-xl fi-rr-cross"></i>
           </a>
           {itemList}
+          <footer className="mt-10 mr-10 flex justify-between">
+            <p>© 2022 Medint</p>
+          <Link href="/app/changelog">
+            <a>
+              <p className="text-sky-800">V. 2.0.2</p>
+            </a>
+          </Link>
+         </footer>
         </div>
       </div>
     </div>,
     <div
-    key="close-windwow"
+      key="close-windwow"
       className={`${state} absolute z-9 bg-transparent top-0 bottom-0 right-0 left-0`}
       onClick={toogleMenu}
-    ></div>
+    ></div>,
   ];
 };
 
