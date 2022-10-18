@@ -5,14 +5,14 @@ import SearchTab from "@components/Admin/Search/SearchTab";
 import LayoutAdmin from "@components/LayoutAdmin";
 
 
-const Histories = () => {
+const Records = () => {
   return (
     <LayoutAdmin>
 
     <div className="container mx-auto grid justify-center">
-      <Title title="Historias" src="/" breadcrumb="Escritorio" />
+      <Title title="Registros" src="/" breadcrumb="Escritorio" />
       <SearchTab
-        title="Buscar Historia"
+        title="Buscar Registro médico"
         placeholder="Buscar por id, nombre o dpi..."
         />
       <QuickActions />
@@ -21,4 +21,4 @@ const Histories = () => {
   );
 };
 
-export default Histories;
+export default Records;

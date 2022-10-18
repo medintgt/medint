@@ -1,17 +1,17 @@
 import Title from "@components/Admin/Title"
-import CreateHistory from "@components/Admin/Histories/CreateHistory";
+import CreateRecord from "@components/Admin/Records/CreateRecord";
 import LayoutAdmin from "@components/LayoutAdmin";
 
-const NewHistory = () => {
+const NewRecord = () => {
     return (
         <LayoutAdmin>
 
         <div className="container mx-auto grid justify-center">
-            <Title title="Nueva Historia" src="/histories" breadcrumb="Historias"/>
-            <CreateHistory/>
+            <Title title="Nuevo Regsitro Médico" src="/records" breadcrumb="Registros"/>
+            <CreateRecord/>
         </div>
         </LayoutAdmin>
     );
 };
-export default NewHistory
+export default NewRecord
 

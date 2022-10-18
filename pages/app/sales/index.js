@@ -10,7 +10,7 @@ const Sales = () => {
 
         <div className="container mx-auto grid justify-center">
             <Title 
-            title="Sales"
+            title="Ventas"
             src="/"
             breadcrumb="Dashboard"
             />

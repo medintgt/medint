@@ -1,6 +1,6 @@
 import Title from "@components/Admin/Title";
 import { ShowPatient } from "@components/Admin/Patients/ShowPatient";
-import { ShowHistories} from "@components/Admin/Histories/ShowHistories";
+import { ShowRecords} from "@components/Admin/Records/ShowRecords";
 import LayoutAdmin from "@components/LayoutAdmin";
 import { useRouter } from "next/router";
 
@@ -14,7 +14,7 @@ return (
         <Title title="Paciente" src="/patients" breadcrumb="Pacientes"/>
         <ShowPatient id={id} />
         <h1 className="text-2xl">Historial médico</h1>
-        <ShowHistories id={id} />
+        <ShowRecords id={id} />
         <section className="flex justify-between py-4">
         <h1 className="text-2xl">Datos</h1>
         </section>
