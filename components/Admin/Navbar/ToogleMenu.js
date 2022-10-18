@@ -15,7 +15,7 @@ const ToogleMenu = () => {
   const items = [
     { id: "1", title: "Escritorio", link: "/app" },
     { id: "2", title: "Pacientes", link: "/app/patients" },
-    { id: "4", title: "Casos Medicos", link: "/app/cases" },
+    { id: "4", title: "Registros Médicos", link: "/app/records" },
     { id: "5", title: "Citas", link: "/app/appointments" },
     { id: "6", title: "Productos", link: "/app/products" },
     { id: "7", title: "Movimientos", link: "/app/movements" },
@@ -56,7 +56,7 @@ const ToogleMenu = () => {
             <p>© 2022 Medint</p>
           <Link href="/app/changelog">
             <a>
-              <p className="text-sky-800">V. 2.0.2</p>
+              <p className="text-sky-800">V. 2.2.0</p>
             </a>
           </Link>
          </footer>
