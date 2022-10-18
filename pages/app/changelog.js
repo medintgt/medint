@@ -8,6 +8,10 @@ const ChangeLog = () => {
     <div className="container mx-auto grid justify-center">
       <div className="w-96">
       <h3 className="text-3xl">Changelog</h3>
+      <strong>V.2.2.0</strong>
+      <p>- Actualización de historias medicas a registros médicos</p>
+      <p>- Eliminado modulo de casos médicos, ahora es Registros médicos.</p>
+      <br/>
       <strong>V.2.1.0</strong>
       <p>- Nueva vista del menu para pantalla larga</p>
       <p>- Se cambio posición de pie de página al menu desplegable o lateral.</p>
