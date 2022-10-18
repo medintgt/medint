@@ -6,7 +6,7 @@ export default async function handler(req, res){
 
     const {db} = await connectToDatabase();
     
-    const data = await db.collection("histories").findOne({_id: ObjectId(id)});
+    const data = await db.collection("records").findOne({_id: ObjectId(id)});
 
     res.json(data);
 }

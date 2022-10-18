@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   try {
       const { db } = await connectToDatabase();
       const data = await db
-      .collection("histories")
+      .collection("records")
       .find({patient_id: id})
       .sort({date_create: -1})
       .limit(/* filters.limit */ 5)
