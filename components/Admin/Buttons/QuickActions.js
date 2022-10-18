@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const items = [
   { title: "Nueva Cita", link: "/app/appointments/new", icon: "calendar" },
-  { title: "Nueva Historia", link: "/app/histories/new", icon: "stethoscope" },
+  { title: "Nuevo Registro Médico", link: "/app/records/new", icon: "stethoscope" },
   { title: "Nuevo Paciente", link: "/app/patients/new", icon: "user-add" },
   { title: "Nueva Venta", link: "/app/sales/new", icon: "dollar" },
   { title: "Nuevo Registro", link: "/app/finances/new", icon: "calculator" },
