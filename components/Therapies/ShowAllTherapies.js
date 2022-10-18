@@ -25,7 +25,11 @@ export const ShowAllTherapies = () => {
         />
         <TherapieCard
           title="Terapia Neural"
-          description="Sirve para estimular la autocuración del cuerpo por medio de inyecciones en puntos específicos del sistema nervioso, se puede aplicar en heridas o cicatrices que el paciente tenga por tiempo prolongado que provocan irritación que podrían ser detonantes en algunas enfermedades. La terapia neural logra muchas veces una mejoría inmediata y a veces hay que repetir la dosis hasta llegar a quitar los síntomas del dolor o molestias. Se puede aplicar en niños, mujeres embarazadas y cualquier persona."
+          description="Sirve para estimular la autocuración del cuerpo por medio de inyecciones en puntos específicos del sistema nervioso, se puede aplicar en heridas o cicatrices que el paciente tenga por tiempo prolongado que provocan irritación que podrían ser detonantes en algunas enfermedades. La terapia neural logra muchas veces una mejoría inmediata y a veces hay que repetir la dosis hasta llegar a quitar los síntomas del dolor o molestias."
+        />
+        <TherapieCard
+          title="Ozonoterapia"
+          description="La ozonoterapia consiste en aplicar una mezcla de oxígeno médico con ozono, utilizada para inducir a la ‘microoxidación’ controlada e inocua, cuya respuesta orgánica será una activación favorable del sistema antioxidante celular. Este tratamiento es usado para rejuvenecimiento celular."
         />
       </div>
     </section>
