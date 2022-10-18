@@ -1,12 +1,12 @@
 import React from "react";
 import Input from "@components/Admin/Forms/Elements/Input";
-import SearchPatientInput from "@components/Admin/Histories/SearchPatientInput";
+import SearchPatientInput from "@components/Admin/Records/SearchPatientInput";
 import { useState, useEffect } from "react";
 import { useSession} from "next-auth/react";
 import Image from "next/image";
 import axios from "axios"
 
-const CreateHistory = () => {
+const CreateRecord = () => {
   const { data: session } = useSession();
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [search, setSearch] = useState("");
@@ -28,10 +28,10 @@ const CreateHistory = () => {
     user_create: session.user.email,
   });
   const sendData = async () => {
-    const response = await axios.post(`/api/histories/new/`, data);
+    const response = await axios.post(`/api/records/new/`, data);
     let responseData = response.data;
     if (responseData.acknowledged == true) {
-      window.location.href = `/app/histories/${responseData.insertedId}`;
+      window.location.href = `/app/records/${responseData.insertedId}`;
     } else {
       console.log("Hubo un error");
     }
@@ -219,11 +219,11 @@ const CreateHistory = () => {
           type="button"
           className="cursor-pointer w-72 text-2xl bg-sky-800 h-12 rounded-full text-white text-center p-2"
         >
-          Guardar Historia
+          Guardar Registro
         </button>
       </div>
     </form>
   );
 };
 
-export default CreateHistory;
+export default CreateRecord;

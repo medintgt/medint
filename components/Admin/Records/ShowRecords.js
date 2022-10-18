@@ -4,26 +4,26 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link"
 
-const Histories = ({data}) => {
+const Records = ({data}) => {
   return (<>
-    {data.map((history) => (
-      <div key={history._id} className="text-lg flex justify-between px-4 py-1">
-        <Link href={`/app/histories/${history._id}`}>
+    {data.map((record) => (
+      <div key={record._id} className="text-lg flex justify-between px-4 py-1">
+        <Link href={`/app/records/${record._id}`}>
         <a>
-        <span className="cursor-pointer text-sky-800">{history.date}</span>
+        <span className="cursor-pointer text-sky-800">{record.date}</span>
         </a>
         </Link>
-        <span className="cursor-pointer">{history.reason}</span>
+        <span className="cursor-pointer">{record.reason}</span>
       </div>
     ))}
     </>
     )
 }
-const ShowHistories = (props) => {
+const ShowRecords = (props) => {
   const [data, setData] = useState(null);
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`/api/histories/${props.id}`);
+      const response = await axios.get(`/api/records/${props.id}`);
       setData(response.data);
     };
     getData();
@@ -34,12 +34,12 @@ const ShowHistories = (props) => {
       <div className="my-4 max-w-md  md:w-96 h-auto p-3">
         <div className="pt-4 grid place-items-center">
           <SecondaryButton
-            location={`/app/histories/new/${props.id}`}
+            location={`/app/records/new/${props.id}`}
             type="button"
-            text="Nueva Historia"
+            text="Nuevo Registro"
           />
         </div>
-        <Histories data={data} />
+        <Records data={data} />
       </div>
     );
   } else {
@@ -48,4 +48,4 @@ const ShowHistories = (props) => {
     </div>;
   }
 };
-export { ShowHistories };
+export { ShowRecords };
