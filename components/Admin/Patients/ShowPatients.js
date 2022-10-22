@@ -25,10 +25,10 @@ if (data != null) {
           <li key={patient._id} className="text-lg flex justify-between px-4 py-1">
             <Link href={`/app/patients/${patient._id}`}>
             <a>
-            <span className="cursor-pointer text-sky-800">{patient.dpi}</span>
+            <span className="cursor-pointer text-sky-800">{patient.name}</span>
             </a>
             </Link>
-            <span className="cursor-pointer">{patient.first_name + " " + patient.last_name.split(" ")[0]}</span>
+            
           </li>
         ))}
       </ul>
