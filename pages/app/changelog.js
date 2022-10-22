@@ -8,6 +8,10 @@ const ChangeLog = () => {
     <div className="container mx-auto grid justify-center">
       <div className="w-96">
       <h3 className="text-3xl">Changelog</h3>
+      <strong>V.2.2.1</strong>
+      <p>- Arreglado error de registros médicos que no guardaba información en colección correcta.</p>
+      <p>- Cambio de mostrar pacientes creados recientemente, eliminado DPI y ahora unico dato a mostrar es nombre completo.</p>
+      <br/>
       <strong>V.2.2.0</strong>
       <p>- Actualización de historias medicas a registros médicos</p>
       <p>- Eliminado modulo de casos médicos, ahora es Registros médicos.</p>

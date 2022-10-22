@@ -56,7 +56,7 @@ const ToogleMenu = () => {
             <p>© 2022 Medint</p>
           <Link href="/app/changelog">
             <a>
-              <p className="text-sky-800">V. 2.2.0</p>
+              <p className="text-sky-800">V. 2.2.1</p>
             </a>
           </Link>
          </footer>
