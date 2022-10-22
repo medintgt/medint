@@ -21,7 +21,7 @@ if (req.method == "POST") {
 
     async function insertData() {
         const {db} = await connectToDatabase();
-        const data = await db.collection("histories").insertOne(insertThis)
+        const data = await db.collection("records").insertOne(insertThis)
         res.json(data);
     }
     insertData()
