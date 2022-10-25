@@ -12,9 +12,9 @@ const ToogleMenu = () => {
     }
   };
   const items = [
-    { id: "1", title: "Terapias", link: "/therapies" },
-    { id: "2", title: "Educación", link: "/education" },
-    { id: "3", title: "Farmacia", link: "/pharmacy" },
+    { id: "1", title: "Personas", link: "/services/individual/" },
+    { id: "2", title: "Profesionales", link: "/services/professionals/" },
+    { id: "3", title: "Empresas", link: "/services/business/" },
     { id: "4", title: "Artículos", link: "/articles" }
   ];
 

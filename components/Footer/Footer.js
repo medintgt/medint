@@ -41,7 +41,7 @@ const Footer = () => {
             <Link href="/privacy">
             <a className="m-4 cursor-pointer">Política de Privacidad</a>
             </Link>
-            <Link href="/careers">
+            <Link href="/corporate/careers">
             <a className="m-4 cursor-pointer">Empleos</a>
             </Link>
             <Link href="/contact">

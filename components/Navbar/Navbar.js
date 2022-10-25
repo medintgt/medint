@@ -29,14 +29,14 @@ const Navbar = () => {
         <nav className="text-lg flex items-center">
         <ToogleMenu />
           <div className="hidden lg:flex">
-            <Link href="/therapies">
-              <a className="m-4 hover:text-main">Terapias</a>
+            <Link href="/services/individual/">
+              <a className="m-4 hover:text-main">Personas</a>
             </Link>
-            <Link href="/academy">
-              <a className="m-4 hover:text-main">Academia</a>
+            <Link href="/services/professionals/">
+              <a className="m-4 hover:text-main">Profesionales</a>
             </Link>
-            <Link href="/pharmacy">
-              <a className="m-4 hover:text-main">Farmacia</a>
+            <Link href="/services/business/">
+              <a className="m-4 hover:text-main">Empresas</a>
             </Link>
             <Link href="/articles">
               <a className="m-4 hover:text-main">Artículos</a>

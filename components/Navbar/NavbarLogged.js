@@ -17,27 +17,19 @@ const NavbarLogged = () => {
         <nav className="text-lg flex items-center">
           <ToogleMenu />
           <div className=" hidden lg:flex">
-            <Link href="/therapies">
-              <a className="m-4 hover:text-main">Terapias</a>
+            <Link href="/services/individual/">
+              <a className="m-4 hover:text-main">Personas</a>
             </Link>
-            <Link href="/academy">
-              <a className="m-4 hover:text-main">Academia</a>
+            <Link href="/services/professionals/">
+              <a className="m-4 hover:text-main">Profesionales</a>
             </Link>
-            <Link href="/pharmacy">
-              <a className="m-4 hover:text-main">Farmacia</a>
+            <Link href="/services/business/">
+              <a className="m-4 hover:text-main">Empresas</a>
             </Link>
             <Link href="/articles">
               <a className="m-4 hover:text-main">Artículos</a>
             </Link>
           </div>
-          <Link href="/app/checkout">
-            <a>
-              <i
-                className="fi-rr-shopping-cart text-3xl cursor-pointer align-middle md:mr-4 p-2 text-main"
-                title="Shopping Cart"
-              ></i>
-            </a>
-          </Link>
           <span className="text-3xl w-10 ml-2">
             <Link href="/app">
               <a>
