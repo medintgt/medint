@@ -11,7 +11,7 @@ const Home = () => {
         <div className="grid justify-center mb-8">
           <Image
             className="cursor-pointer object-contain"
-            src="https://storage.googleapis.com/medint/public/promocion-diciembre-2022.png"
+            src="https://storage.googleapis.com/medint/public/Promocion%20diciembre%20del%202022.png"
             width={502}
             height={502}
             alt="About"
