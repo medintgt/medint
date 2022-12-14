@@ -27,7 +27,7 @@ const NewPrescription = () => {
     <LayoutAdmin>
       <div>
         <p>
-          Haga click en el button para crear una nueva{" "}
+          Haga click en el botón para crear una nueva{" "}
           <code>Prescripción</code>
         </p>
         <button onClick={createPdf}>Crear PDF</button>
