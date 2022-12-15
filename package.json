@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
     "axios": "^0.27.2",
+    "blob": "^0.1.0",
     "cors": "^2.8.5",
     "cypress": "^10.6.0",
     "downloadjs": "^1.4.7",
@@ -28,7 +29,8 @@
     "react-calendar": "^3.7.0",
     "react-dom": "18.0.0",
     "react-intl": "^6.0.2",
-    "react-pdf": "^6.2.0"
+    "react-pdf": "^6.2.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
