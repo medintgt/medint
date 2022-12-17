@@ -1,31 +1,27 @@
 import LayoutAdmin from "@components/LayoutAdmin";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-import download from "downloadjs";
 import { useState } from "react";
 import axios from "axios";
 
 const NewPrescription = () => {
+  // Initialize the state variables for the input fields
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [date, setDate] = useState("");
+  const [medicalDescription, setMedicalDescription] = useState("");
+  const [nextDate, setNextDate] = useState("");
 
   async function previewPdf() {
     // Load the template
-    const url =
-      "https://storage.googleapis.com/medint/admin/content/prescription-template.pdf";
+    let prescriptionTemplate = "https://storage.googleapis.com/medint/public/prescription-template.pdf";
     let templateBytes;
     try {
       templateBytes = await axios
-        .get(url, {
+        .get(prescriptionTemplate, {
           responseType: "arraybuffer",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Method": "*"
-          },
         })
         .then((res) => res.data);
     } catch (error) {
-      // Handle the error here. For example, you can log the error or show an error message to the user.
+      // Error handling, shows error on console.
       console.error(error);
     }
 
@@ -41,8 +37,10 @@ const NewPrescription = () => {
     const operators = page.getTextOperators();
     operators.forEach((op) => {
       if (op.string === "{{name}}") op.string = name;
-      if (op.string === "{{address}}") op.string = address;
-      if (op.string === "{{phoneNumber}}") op.string = phoneNumber;
+      if (op.string === "{{date}}") op.string = date;
+      if (op.string === "{{medicalDescription}}")
+        op.string = medicalDescription;
+      if (op.string === "{{nextDate}}") op.string = nextDate;
     });
 
     // Save the PDF and open it in a new tab
@@ -66,16 +64,21 @@ const NewPrescription = () => {
         />
         <input
           type="text"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-
-          placeholder="Dirección"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          placeholder="Fecha"
         />
         <input
           type="text"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          placeholder="Número de teléfono"
+          value={medicalDescription}
+          onChange={(e) => setMedicalDescription(e.target.value)}
+          placeholder="Descripción médica"
+        />
+        <input
+          type="text"
+          value={nextDate}
+          onChange={(e) => setNextDate(e.target.value)}
+          placeholder="Fecha siguiente"
         />
         <button onClick={previewPdf}>Visualizar PDF</button>
       </div>
