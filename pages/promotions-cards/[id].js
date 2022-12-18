@@ -14,7 +14,7 @@ const PromotionCardPage = () => {
           <p>Promoción: Paquete de 10 masajes quiropracticos, diciembre 2022.</p>
           <p>Estado de la tarjeta: Valida</p>
           <p>Código: {slug}</p>
-          <p>Canjes disponibles: 9</p>
+          <p>Canjes disponibles: 8</p>
           <p>Vigencia: 07-08-2022 al 28-02-2023</p>
           <p>Notas:</p>
         </section>
