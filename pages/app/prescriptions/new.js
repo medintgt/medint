@@ -16,6 +16,9 @@ const NewPrescription = () => {
   const [medicalDescription, setMedicalDescription] = useState("");
   const [nextDate, setNextDate] = useState("");
 
+  async function savePrescription() {
+    console.log("Guardando...")
+  }
   async function previewPdf() {
     // Load the template
     let prescriptionTemplate =
@@ -118,8 +121,8 @@ const NewPrescription = () => {
             rows="10"
             cols="50"
             className="mx-auto my-2 w-72 py-1 px-2 border rounded-md border-gray-400"
+            value={medicalDescription}
           >
-            {medicalDescription}
           </textarea>
           <input
             type="text"
@@ -129,10 +132,16 @@ const NewPrescription = () => {
             className="mx-auto my-2 w-72 py-1 px-2 border rounded-md border-gray-400"
           />
           <button
-            onClick={previewPdf}
+            onClick={savePrescription}
             className="mx-auto mt-2 w-72 py-2 px-4 bg-sky-800 text-white rounded-md"
           >
-            Visualizar
+            Guardar
+          </button>
+          <button
+            onClick={previewPdf}
+            className="mx-auto mt-2 w-72 py-2 px-4 border-sky-800 text-sky-800 rounded-md border-2"
+          >
+            Previsualizar
           </button>
         </div>
       </LayoutAdmin>
