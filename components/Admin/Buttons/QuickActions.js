@@ -9,11 +9,7 @@ const items = [
   { title: "Nueva Cita", link: "/app/appointments/new", icon: "calendar" },
   { title: "Nuevo Registro Médico", link: "/app/records/new", icon: "stethoscope" },
   { title: "Nuevo Paciente", link: "/app/patients/new", icon: "user-add" },
-  { title: "Nueva Venta", link: "/app/sales/new", icon: "dollar" },
-  { title: "Nuevo Registro", link: "/app/finances/new", icon: "calculator" },
   { title: "Nuevo Dato", link: "/app/data/new", icon: "layers" },
-  { title: "Nuevo Movimiento", link: "/app/movements/new", icon: "pharmacy" },
-  { title: "Nuevo Producto", link: "/app/products/new", icon: "shopping-bag-add" },
   { title: "Nueva Prescripción", link: "/app/prescriptions/new", icon: "receipt" },
 ];
 

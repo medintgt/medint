@@ -15,17 +15,11 @@ const ToogleMenu = () => {
   const items = [
     { id: "1", title: "Escritorio", link: "/app" },
     { id: "2", title: "Pacientes", link: "/app/patients" },
-    { id: "4", title: "Registros Médicos", link: "/app/records" },
-    { id: "5", title: "Citas", link: "/app/appointments" },
-    { id: "6", title: "Productos", link: "/app/products" },
-    { id: "7", title: "Movimientos", link: "/app/movements" },
-    { id: "8", title: "Cursos", link: "/app/courses" },
-    { id: "9", title: "Artículos", link: "/app/articles" },
-    { id: "10", title: "Usuarios", link: "/app/users" },
-    { id: "11", title: "Prescripciones", link: "/app/prescriptions" },
-    { id: "12", title: "Ordenes", link: "/app/orders" },
-    { id: "13", title: "Ventas", link: "/app/sales" },
-    { id: "14", title: "Finanzas", link: "/app/finances" },
+    { id: "3", title: "Registros Médicos", link: "/app/records" },
+    { id: "4", title: "Citas", link: "/app/appointments" },
+    { id: "5", title: "Medicamentos", link: "/app/products" },
+    { id: "6", title: "Usuarios", link: "/app/users" },
+    { id: "7", title: "Prescripciones", link: "/app/prescriptions" }
   ];
 
   const itemList = items.map((item) => (
